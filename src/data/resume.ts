@@ -4,7 +4,6 @@ export const profile = {
   tagline:
     'Building real-time data platforms, LLM systems, and ML pipelines — from streaming geospatial analytics to agentic tool orchestration.',
   email: 'summerist.l@hotmail.com',
-  //phone: '(437) 286-4762',
   linkedin: 'https://www.linkedin.com/in/ximoliang/',
   location: 'Canada/USA',
   resumePdf: 'resume.pdf', // place your PDF in /public
@@ -45,7 +44,6 @@ export const skillGroups = [
   },
 ];
 
-export type ProjectMedia = 'mockup' | 'diagram';
 export type ProjectVisual = 'map' | 'agent' | 'search' | 'chat' | 'vision' | 'warehouse' | 'neuro' | 'network';
 
 export interface Project {
@@ -55,7 +53,6 @@ export interface Project {
   highlights: string[];
   stack: string[];
   metrics: string[];
-  media: ProjectMedia; // placeholder type shown on the card
   visual: ProjectVisual;
   category: 'Data systems' | 'Applied ML' | 'Research';
   featured?: boolean;
@@ -67,7 +64,6 @@ export const projects: Project[] = [
     context: 'Public Safety',
     year: '2026',
     featured: true,
-    media: 'mockup',
     visual: 'map',
     category: 'Data systems',
     highlights: [
@@ -83,7 +79,6 @@ export const projects: Project[] = [
     context: 'Personal Project',
     year: '2025',
     featured: true,
-    media: 'mockup',
     visual: 'agent',
     category: 'Data systems',
     highlights: [
@@ -99,7 +94,6 @@ export const projects: Project[] = [
     context: 'Public Safety',
     year: '2025',
     featured: true,
-    media: 'mockup',
     visual: 'search',
     category: 'Data systems',
     highlights: [
@@ -113,7 +107,6 @@ export const projects: Project[] = [
     title: 'Online Expertise Chatbot',
     context: 'Personal Project',
     year: '2024',
-    media: 'diagram',
     visual: 'chat',
     category: 'Applied ML',
     highlights: [
@@ -127,7 +120,6 @@ export const projects: Project[] = [
     title: 'Cartridge Case Image Segmentation & Annotation',
     context: 'Forensic Science',
     year: '2023',
-    media: 'diagram',
     visual: 'vision',
     category: 'Applied ML',
     highlights: [
@@ -141,7 +133,6 @@ export const projects: Project[] = [
     title: 'Cloud Data Migration & Pipeline Design',
     context: 'Healthcare',
     year: '2020–2021',
-    media: 'diagram',
     visual: 'warehouse',
     category: 'Data systems',
     highlights: [
@@ -155,7 +146,6 @@ export const projects: Project[] = [
     title: 'ML for Neurological Response Analysis',
     context: 'Healthcare / Research',
     year: '2019–2022',
-    media: 'diagram',
     visual: 'neuro',
     category: 'Research',
     highlights: [
@@ -170,7 +160,6 @@ export const projects: Project[] = [
     title: 'Social Network Analysis — Gaming Network',
     context: 'Video Game Industry',
     year: '2018',
-    media: 'diagram',
     visual: 'network',
     category: 'Research',
     highlights: [

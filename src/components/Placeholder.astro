@@ -1,17 +1,27 @@
 ---
+import type { ProjectVisual } from '../data/resume';
+
 interface Props {
-  kind: 'mockup' | 'diagram' | 'demo';
-  visual: string;
+  visual: ProjectVisual;
   label: string;
 }
 
-const { kind, visual, label } = Astro.props;
-const kindLabels: Record<string, string> = { mockup: 'Concept UI · Placeholder', diagram: 'System map · Placeholder', demo: 'Interactive demo · Placeholder' };
+const { visual, label } = Astro.props;
+const visualLabels: Record<ProjectVisual, string> = {
+  map: 'Geospatial streaming and dispatch system',
+  agent: 'Agent orchestration and risk controls',
+  search: 'Hybrid search and retrieval workflow',
+  chat: 'Retrieval-augmented assistant workflow',
+  vision: 'Image segmentation workflow',
+  warehouse: 'Cloud data migration pipeline',
+  neuro: 'Research modeling and validation workflow',
+  network: 'Player relationship analysis network',
+};
 ---
 
-<div class:list={['placeholder', kind]} aria-label={`${kindLabels[kind]} for ${label}`}>
-  <div class="ph-topline"><span class="ph-status">CONCEPT VISUAL</span><span>NOT OPERATIONAL DATA</span></div>
-  <div class="ph-art" aria-hidden="true">
+<figure class="project-illustration" role="img" aria-label={`${visualLabels[visual]} for ${label}`}>
+  <div class="illustration-topline"><span class="illustration-status">SYSTEMS STUDY</span><span>SCHEMATIC / NOT TO SCALE</span></div>
+  <div class="illustration-art" aria-hidden="true">
     {visual === 'map' && (
       <svg viewBox="0 0 480 180" fill="none">
         <g stroke="#8faaa0" stroke-opacity=".24"><path d="M0 45H480M0 90H480M0 135H480M60 0V180M120 0V180M180 0V180M240 0V180M300 0V180M360 0V180M420 0V180"/></g>
@@ -81,5 +91,6 @@ const kindLabels: Record<string, string> = { mockup: 'Concept UI · Placeholder'
       </svg>
     )}
   </div>
-  <div class="ph-bottomline"><span>{kindLabels[kind]}</span><span>VISUAL PLACEHOLDER</span></div>
-</div>
+  </div>
+  <figcaption class="illustration-caption"><span>{visualLabels[visual]}</span><span>{label}</span></figcaption>
+</figure>

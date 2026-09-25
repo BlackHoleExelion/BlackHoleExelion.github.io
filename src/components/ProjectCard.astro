@@ -10,7 +10,7 @@ const { project } = Astro.props;
 ---
 
 <article class="project" data-category={project.category}>
-  <div class="project-visual"><Placeholder kind={project.media} visual={project.visual} label={project.title} /></div>
+  <div class="project-visual"><Placeholder visual={project.visual} label={project.title} /></div>
   <div class="project-content">
     <div class="project-meta"><span>{project.category}</span><span>{project.context} · {project.year}</span></div>
     <div class="project-head">
@@ -41,7 +41,8 @@ const { project } = Astro.props;
     background: #1b211c;
   }
   .project-visual {
-    padding: 0.75rem 0.75rem 0;
+    min-width: 0;
+    padding: 0.9rem 0.9rem 0;
   }
   .project-head {
     display: flex;
@@ -59,6 +60,10 @@ const { project } = Astro.props;
     line-height: 1.13;
   }
   .project-content {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: center;
     padding: 1.25rem 1.25rem 0.75rem;
   }
   .project-meta {
