@@ -10,7 +10,7 @@ const kindLabels: Record<string, string> = { mockup: 'Concept UI', diagram: 'Sys
 ---
 
 <div class:list={['placeholder', kind]} role="img" aria-label={`${kindLabels[kind]} illustration for ${label}`}>
-  <div class="ph-topline"><span class="ph-status">{kindLabels[kind]}</span><span>ILLUSTRATIVE</span></div>
+  <div class="ph-topline"><span class="ph-status">{kindLabels[kind]}</span><span></span></div>
   <div class="ph-art" aria-hidden="true">
     {visual === 'map' && (
       <svg viewBox="0 0 480 180" fill="none">

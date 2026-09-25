@@ -15,7 +15,7 @@ const { project } = Astro.props;
     <div class="project-meta"><span>{project.category}</span><span>{project.context} · {project.year}</span></div>
     <div class="project-head">
       <h3>{project.title}</h3>
-      {project.featured && <span class="flag">Selected</span>}
+
     </div>
     <div class="metrics">
       {project.metrics.map((m) => <span class="metric">{m}</span>)}

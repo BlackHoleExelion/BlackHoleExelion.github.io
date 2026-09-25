@@ -82,7 +82,7 @@ export const projects: Project[] = [
     context: 'Personal Project',
     year: '2025',
     featured: true,
-    media: 'mockup',
+    media: 'diagram',
     visual: 'agent',
     category: 'Data systems',
     highlights: [
@@ -126,7 +126,7 @@ export const projects: Project[] = [
     title: 'Cartridge Case Image Segmentation & Annotation',
     context: 'Forensic Science',
     year: '2023',
-    media: 'diagram',
+    media: 'mockup',
     visual: 'vision',
     category: 'Applied ML',
     highlights: [
@@ -169,7 +169,7 @@ export const projects: Project[] = [
     title: 'Social Network Analysis — Gaming Network',
     context: 'Video Game Industry',
     year: '2018',
-    media: 'diagram',
+    media: 'mockup',
     visual: 'network',
     category: 'Research',
     highlights: [
