@@ -3,10 +3,10 @@ export const profile = {
   title: 'Data Science Engineer',
   tagline:
     'Building real-time data platforms, LLM systems, and ML pipelines — from streaming geospatial analytics to agentic tool orchestration.',
-  email: 'myemail@hotmail.com',
-  phone: '(123) 456-7890',
-  linkedin: 'https://www.linkedin.com/in/mylinkedin/',
-  location: 'Greater Toronto Area, Canada',
+  email: 'summerist.l@hotmail.com',
+  phone: '(437) 286-4762',
+  linkedin: 'https://www.linkedin.com/in/ximoliang/',
+  location: 'Canada/USA',
   resumePdf: 'resume.pdf', // place your PDF in /public
 };
 
@@ -17,7 +17,7 @@ export const skillGroups = [
   },
   {
     label: 'Data Engineering',
-    skills: ['Kafka', 'Spark', 'ETL', 'ClickHouse', 'Elasticsearch', 'Redis', 'NoSQL', 'Snowflake'],
+    skills: ['Kafka', 'Spark', 'ETL', 'ClickHouse', 'Elasticsearch', 'Redis', 'MSSQL', 'NoSQL', 'Snowflake'],
   },
   {
     label: 'ML / AI',
@@ -37,7 +37,7 @@ export const skillGroups = [
   },
   {
     label: 'APIs & Backend',
-    skills: ['FastAPI', 'REST', 'WebSocket', 'Flask', 'Docker', 'Kubernetes', 'Linux', 'Git'],
+    skills: ['REST', 'WebSocket', 'FastAPI', 'Flask', 'Docker', 'Kubernetes', 'Linux', 'Git'],
   },
   {
     label: 'Cloud',
@@ -222,7 +222,7 @@ export const education = [
     school: 'Drexel University',
     location: 'Philadelphia, USA',
     period: 'March 2019',
-    notes: ['Beta Gamma Sigma Honor Society', 'GPA: 3.97/4.0'],
+    highlights: ['Member of Beta Gamma Sigma Honor Society', 'GPA: 3.97/4.0'],
   },
 ];
 
