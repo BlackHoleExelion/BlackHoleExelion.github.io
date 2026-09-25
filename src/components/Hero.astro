@@ -15,41 +15,61 @@ import { profile } from '../data/resume';
       </div>
       <div class="hero-footnote"><span>CANADA & USA</span><span>OPEN TO DATA & MACHINE LEARNIING ROLES</span></div>
     </div>
-    <div class="hero-visual" aria-label="Illustrative visualization of a real-time data pipeline">
-      <div class="visual-top"><span>FIELD NOTE 001</span><span>STREAM / SPATIAL / INSIGHT</span></div>
-      <svg class="hero-diagram" viewBox="0 0 520 430" role="img" aria-labelledby="hero-graphic-title hero-graphic-desc">
-        <title id="hero-graphic-title">From raw events to actionable insight</title>
-        <desc id="hero-graphic-desc">An abstract technical illustration showing data moving through a streaming pipeline into a spatial grid and chart.</desc>
+    <div class="hero-visual" aria-label="Illustrative geospatial analytics visualization">
+      <div class="visual-top"><span>SPATIAL SIGNALS</span><span>FIELD NOTE 001</span></div>
+      <svg class="hero-diagram" viewBox="0 0 560 430" role="img" aria-labelledby="hero-graphic-title hero-graphic-desc">
+        <title id="hero-graphic-title">Geospatial data, rendered as a living map</title>
+        <desc id="hero-graphic-desc">An abstract topographic map with hexagonal regions, a highlighted event trail, and a compact time-series signal.</desc>
         <defs>
-          <pattern id="hero-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#d9e8ca" stroke-opacity=".08" stroke-width="1" /></pattern>
-          <linearGradient id="hero-fade" x1="0" x2="1"><stop stop-color="#d2ed78" stop-opacity=".08"/><stop offset="1" stop-color="#d2ed78" stop-opacity=".72"/></linearGradient>
+          <pattern id="hero-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#d9e8ca" stroke-opacity=".055" stroke-width="1" /></pattern>
+          <linearGradient id="hero-heat" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#8faaa0" stop-opacity=".08"/><stop offset="1" stop-color="#d2ed78" stop-opacity=".55"/></linearGradient>
+          <radialGradient id="hero-glow"><stop stop-color="#d2ed78" stop-opacity=".15"/><stop offset="1" stop-color="#d2ed78" stop-opacity="0"/></radialGradient>
+          <clipPath id="hero-map-clip"><path d="M25 24H535V405H25Z"/></clipPath>
         </defs>
-        <rect x="12" y="16" width="496" height="396" fill="url(#hero-grid)" stroke="#303830"/>
-        <g fill="none" stroke="#687866" stroke-width="1">
-          <path d="M88 128H194M88 218H194M88 308H194M302 218H394" stroke-dasharray="4 5" />
-          <path d="M194 128L228 174M194 218H228M194 308L228 260M292 218L322 150M292 218L322 286" />
+        <rect x="25" y="24" width="510" height="381" fill="url(#hero-grid)"/>
+        <g clip-path="url(#hero-map-clip)">
+          <ellipse cx="286" cy="218" rx="183" ry="151" fill="url(#hero-glow)"/>
+          <g fill="none" stroke="#8faaa0" stroke-opacity=".16" stroke-width="1">
+            <path d="M-12 114C57 57 117 85 158 61S264 38 306 66 395 83 446 48 541 47 580 23"/>
+            <path d="M-20 132C48 75 110 101 153 78S260 55 303 83 395 101 451 65 545 67 586 42"/>
+            <path d="M-24 318C54 282 94 310 153 286S251 260 305 293 398 314 449 275 545 277 581 244"/>
+            <path d="M-25 339C54 303 99 330 159 306S256 282 308 313 399 335 454 297 548 298 585 265"/>
+          </g>
+          <g fill="none" stroke="#8faaa0" stroke-opacity=".25" stroke-width="1.2">
+            <path d="M45 55L116 124L90 193L150 252L113 333"/><path d="M80 40L151 108L124 178L183 238L151 323"/>
+            <path d="M427 39L366 108L398 176L343 234L380 326"/><path d="M465 51L404 121L435 187L380 245L419 336"/>
+            <path d="M25 202L122 192L208 216L304 199L393 214L535 190"/><path d="M25 226L120 216L207 240L307 223L396 238L535 214"/>
+          </g>
+          <path d="M71 292C117 273 127 205 178 201S236 249 277 214 340 143 389 157 444 203 496 112" fill="none" stroke="#d6a778" stroke-opacity=".18" stroke-width="10"/>
+          <path d="M71 292C117 273 127 205 178 201S236 249 277 214 340 143 389 157 444 203 496 112" fill="none" stroke="#d6a778" stroke-width="1.8" stroke-dasharray="3 7"/>
+          <g fill="#d6a778"><circle cx="71" cy="292" r="3.5"/><circle cx="178" cy="201" r="3.5"/><circle cx="277" cy="214" r="3.5"/><circle cx="389" cy="157" r="3.5"/><circle cx="496" cy="112" r="3.5"/></g>
+          <g stroke="#d2ed78" stroke-width="1.1">
+            <path d="M184 125L205 113L226 125V149L205 161L184 149Z" fill="#d2ed78" fill-opacity=".16"/>
+            <path d="M226 125L247 113L268 125V149L247 161L226 149Z" fill="#d2ed78" fill-opacity=".32"/>
+            <path d="M205 161L226 149L247 161V185L226 197L205 185Z" fill="#d2ed78" fill-opacity=".2"/>
+            <path d="M247 161L268 149L289 161V185L268 197L247 185Z" fill="#d2ed78" fill-opacity=".48"/>
+            <path d="M289 161L310 149L331 161V185L310 197L289 185Z" fill="#d2ed78" fill-opacity=".24"/>
+            <path d="M226 197L247 185L268 197V221L247 233L226 221Z" fill="#d2ed78" fill-opacity=".12"/>
+            <path d="M268 197L289 185L310 197V221L289 233L268 221Z" fill="#d2ed78" fill-opacity=".3"/>
+          </g>
+          <circle cx="278" cy="173" r="44" fill="url(#hero-glow)"/>
+          <circle cx="278" cy="173" r="4" fill="#d2ed78"/>
+          <path d="M284 169L324 139H382" fill="none" stroke="#d2ed78" stroke-opacity=".65"/>
+          <text x="327" y="133" fill="#d2ed78" font-family="monospace" font-size="8" letter-spacing="1">HIGH-ACTIVITY CELL</text>
+
+          <g transform="translate(337 266)">
+            <rect width="160" height="94" fill="#141914" fill-opacity=".94" stroke="#465144"/>
+            <text x="12" y="17" fill="#a4aaa0" font-family="monospace" font-size="7" letter-spacing="1">EVENT RATE / 60 MIN</text>
+            <path d="M12 69H148M12 48H148M12 27H148" stroke="#8faaa0" stroke-opacity=".15"/>
+            <path d="M12 72L29 66L43 68L58 48L73 54L88 39L103 44L118 27L132 34L148 20" fill="none" stroke="#d2ed78" stroke-width="1.6"/>
+            <g fill="#d2ed78"><circle cx="58" cy="48" r="2"/><circle cx="118" cy="27" r="2"/><circle cx="148" cy="20" r="2"/></g>
+            <text x="12" y="86" fill="#727a70" font-family="monospace" font-size="6">SYNTHETIC VISUALIZATION</text>
+          </g>
         </g>
-        <g font-family="monospace" font-size="10" letter-spacing="1.5">
-          <text x="48" y="76" fill="#a4aaa0">SOURCE</text><text x="221" y="76" fill="#a4aaa0">TRANSFORM</text><text x="378" y="76" fill="#a4aaa0">SIGNAL</text>
-          <text x="45" y="358" fill="#727a70">LIVE EVENTS</text><text x="220" y="358" fill="#727a70">SPATIAL INDEX</text><text x="380" y="358" fill="#727a70">DECISION</text>
-        </g>
-        <g>
-          <rect x="42" y="106" width="96" height="44" fill="#171c18" stroke="#465144"/><rect x="42" y="196" width="96" height="44" fill="#171c18" stroke="#465144"/><rect x="42" y="286" width="96" height="44" fill="#171c18" stroke="#465144"/>
-          <circle cx="57" cy="128" r="4" fill="#d2ed78"/><circle cx="57" cy="218" r="4" fill="#8faaa0"/><circle cx="57" cy="308" r="4" fill="#d6a778"/>
-          <g fill="#f0efe8" font-family="monospace" font-size="11"><text x="69" y="132">GPS FEED</text><text x="69" y="222">CASE LOG</text><text x="69" y="312">EVENT BUS</text></g>
-          <rect x="194" y="174" width="98" height="88" fill="#20291e" stroke="#d2ed78"/><g fill="#d2ed78" font-family="monospace" font-size="10"><text x="211" y="210">ENRICH</text><text x="211" y="228">& INDEX</text></g><path d="M210 239H275" stroke="#d2ed78" stroke-opacity=".4"/>
-        </g>
-        <g transform="translate(322 108)">
-          <rect width="144" height="220" fill="#171c18" stroke="#465144"/>
-          <path d="M0 48H144M0 100H144M0 152H144M48 0V220M96 0V220" stroke="#d9e8ca" stroke-opacity=".09"/>
-          <path d="M25 136L49 105L73 116L97 72L121 82" fill="none" stroke="url(#hero-fade)" stroke-width="2"/>
-          <g fill="#d2ed78"><circle cx="25" cy="136" r="3"/><circle cx="49" cy="105" r="3"/><circle cx="73" cy="116" r="3"/><circle cx="97" cy="72" r="3"/><circle cx="121" cy="82" r="3"/></g>
-          <rect x="16" y="174" width="46" height="24" fill="#20291e"/><rect x="72" y="174" width="56" height="24" fill="#20291e"/>
-          <text x="24" y="190" fill="#d2ed78" font-family="monospace" font-size="9">&lt;500ms</text><text x="81" y="190" fill="#8faaa0" font-family="monospace" font-size="9">LIVE</text>
-        </g>
-        <g fill="#d2ed78"><circle cx="194" cy="128" r="3"/><circle cx="194" cy="218" r="3"/><circle cx="194" cy="308" r="3"/><circle cx="322" cy="150" r="3"/><circle cx="322" cy="286" r="3"/></g>
+        <g fill="#727a70" font-family="monospace" font-size="7" letter-spacing="1"><text x="34" y="390">EVENT TRAIL</text><text x="206" y="390">H3 INDEX</text><text x="351" y="390">TIME-SERIES SIGNAL</text></g>
+        <g fill="#d2ed78"><circle cx="28" cy="387" r="2"/><circle cx="198" cy="387" r="2"/><circle cx="343" cy="387" r="2"/></g>
       </svg>
-      <div class="visual-bottom"><span>FIG. 01 — SYSTEMS IN MOTION</span><span>01 / 04</span></div>
+      <div class="visual-bottom"><span>GEO / STREAM / ANALYZE</span><span>H3 · LIVE SIGNAL</span></div>
     </div>
   </div>
 </section>
@@ -153,8 +173,9 @@ import { profile } from '../data/resume';
   .hero-visual {
     position: relative;
     padding: 0.8rem;
-    border: 1px solid var(--border);
-    background: #121712;
+    border: 1px solid rgba(143, 170, 160, 0.22);
+    background: radial-gradient(ellipse at 52% 45%, #1a211b 0%, #121712 68%);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
   }
   .visual-top,
   .visual-bottom {
@@ -176,6 +197,7 @@ import { profile } from '../data/resume';
     display: block;
     width: 100%;
     height: auto;
+    overflow: visible;
   }
   @media (max-width: 900px) {
     .hero-content {
