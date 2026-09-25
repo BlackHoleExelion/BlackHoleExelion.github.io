@@ -1,8 +1,6 @@
 import { defineConfig } from 'astro/config';
 
-// Repo name doesn't match the <username>.github.io pattern, so the site
-// publishes at https://blackholeexelion.github.io/ximo.liang.github.io/
+// Repo is named <username>.github.io, so the site publishes at the root URL.
 export default defineConfig({
   site: 'https://blackholeexelion.github.io',
-  base: '/ximo.liang.github.io',
 });
