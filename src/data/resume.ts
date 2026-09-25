@@ -19,7 +19,7 @@ export const skillGroups = [
     skills: ['Kafka', 'Spark', 'ETL', 'ClickHouse', 'Elasticsearch', 'Redis', 'MSSQL', 'NoSQL', 'Snowflake'],
   },
   {
-    label: 'Machine Learning / AI',
+    label: 'AI & Machine Learning',
     skills: [
       'LLM',
       'RAG',
@@ -187,10 +187,10 @@ export const experience = [
     location: 'Greater Toronto Area, Canada',
     period: 'May 2025 – Present',
     bullets: [
-      'Engineered real-time geospatial data pipelines (Python, Kafka, ClickHouse, Uber H3) reducing latency from 2-day batch cycles to <500ms streaming over millions of records.',
-      'Built low-latency async backend services with FastAPI, Redis, and REST/WebSocket APIs serving operational dashboards with sub-5-second refresh cycles.',
-      'Deployed an LLM inference layer (vLLM, quantized 3.8B model, streaming FastAPI proxy) with sub-2-second first-token latency.',
-      'Developed a production hybrid search and analytics platform (Elasticsearch, Sentence-Transformers, AutoGluon, MLflow) — 99.9% ETL time reduction, +113% corpus capacity, 92% faster blind-spot identification.',
+      'Engineered real-time geospatial data pipelines for high-volume police GPS and occurrence data using Python, Kafka, ClickHouse, Uber H3, GeoJSON, UTM-to-WGS84 transformation, and incremental ETL, reducing latency from 2-day batch cycles to <500ms streaming while supporting millisecond queries over millions of records.',
+      'Built low-latency async backend services with FastAPI, Redis, REST/WebSocket APIs, and distributed Linux deployments to serve patrol coverage heatmaps, occurrence risk maps, spatial aggregations, and operational dashboards with sub-5-second refresh cycles.',
+      'Deployed an open-source LLM inference layer using vLLM, a quantized 3.8B model, and a streaming FastAPI proxy, enabling natural-language hex-area summaries and dispatch briefings with sub-2-second first-token latency.',
+      'Developed a production-grade hybrid search and analytics platform using Elasticsearch, Sentence-Transformers, AutoGluon, MLflow, Dockerized ETL, caching, deduplication, and spatial indexing, reducing routine ETL time by 99.9%, expanding searchable corpus capacity by 113%, and reducing patrol blind-spot identification time by 92%.',
     ],
   },
   {
@@ -199,9 +199,11 @@ export const experience = [
     location: 'Philadelphia, USA',
     period: 'May 2019 – April 2022',
     bullets: [
-      'EDA, modeling, and ML on 50+ TB of high-dimensional structured and unstructured data on HPC clusters and cloud platforms.',
-      'Built 10+ data acquisition and ETL pipelines with validation and hyperparameter tuning in a distributed Linux environment.',
-      'Produced 100+ publication-quality charts and interactive dashboards; research published in journals including Nature.',
+      'Conducted exploratory data analysis, data modeling, machine learning, and data visualization on over 50TB high-dimensional structured data and unstructured data including imaging, physiological signal data, using Python, R, Matlab, Bash, Docker, Singularity, Spark, Oracle Grid Engine on HPC clusters and cloud platforms.',
+      'Worked on 10+ data acquisition, ETL processes, and data processing pipelines, and performed data integration, wrangling, modeling, model selection, validation and hyperparameter tuning within a distributed Linux environment.',
+      'Stored, managed, and organized big data across various platforms, encompassing storage nodes and cloud-based NoSQL platforms with API and CLI.',
+      'Supported studies and publications with 100+ high quality charts, plots, tables, and interactive dashboard using tools such as Matplotlib, Seaborn, Ggplot2, D3.js, etc.',
+      'The research resulted in papers published in several prestigious journals, including Nature.',
     ],
   },
   {
@@ -210,8 +212,8 @@ export const experience = [
     location: 'Redwood City, USA',
     period: 'June 2018 – September 2018',
     bullets: [
-      'Led network analysis on 13,000+ players with similarity measures and logistic regression (72% accuracy).',
-      'Built interactive network visualizations (Gephi, R) that informed game design and community engagement.',
+      'Led comprehensive network analysis on a dataset spanning 13,000+ players by designing and implementing advanced similarity measures alongside logistic regression models, ultimately achieving a predictive accuracy of 72% in forecasting player connections.',
+      'Developed and refined interactive network visualizations using Gephi and R, translating complex player interaction patterns into strategic insights that directly informed game design enhancements and strengthened community engagement.',
     ],
   },
 ];
