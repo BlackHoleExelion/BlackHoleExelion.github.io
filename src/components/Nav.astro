@@ -22,7 +22,7 @@ const links = [
     </button>
     <nav id="primary-navigation" aria-label="Main navigation">
       {links.map((l, index) => <a href={l.href}><span class="nav-number">0{index + 1}</span>{l.label}</a>)}
-      <a class="cta" href={`${import.meta.env.BASE_URL}/${profile.resumePdf}`} download>
+      <a class="cta" href={`${import.meta.env.BASE_URL}${profile.resumePdf}`} download>
         <span>Get my resume</span><span aria-hidden="true">↗</span>
       </a>
     </nav>
