@@ -29,6 +29,9 @@ html {
 }
 
 body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
   margin: 0;
   background-color: var(--bg);
   background-image: linear-gradient(rgba(220, 232, 213, 0.018) 1px, transparent 1px),
@@ -38,6 +41,29 @@ body {
   font-family: 'Aptos', 'Segoe UI', system-ui, sans-serif;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: -18%;
+  background:
+    radial-gradient(ellipse at 18% 22%, rgba(143, 170, 160, 0.075), transparent 34%),
+    radial-gradient(ellipse at 78% 38%, rgba(210, 237, 120, 0.045), transparent 30%),
+    radial-gradient(ellipse at 55% 88%, rgba(214, 167, 120, 0.035), transparent 32%);
+  content: '';
+  pointer-events: none;
+  animation: ambient-drift 42s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes ambient-drift {
+  from {
+    transform: translate3d(-1.5%, -0.8%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(1.5%, 0.8%, 0) scale(1.035);
+  }
 }
 
 ::selection {
@@ -235,6 +261,10 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+
   *,
   *::before,
   *::after {
