@@ -1,0 +1,39 @@
+---
+import { publications } from '../data/resume';
+---
+
+<section id="publications">
+  <h2 class="section-title">Publications</h2>
+  <p class="section-sub">Peer-reviewed research from my time at the University of Pennsylvania.</p>
+  <div class="card">
+    <ol class="pubs">
+      {
+        publications.map((p) => (
+          <li>
+            <span class="pub-title">{p.title}</span>
+            <span class="pub-venue">{p.venue}</span>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .pubs {
+    margin: 0;
+    padding-left: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .pub-title {
+    display: block;
+    font-weight: 600;
+  }
+  .pub-venue {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+</style>

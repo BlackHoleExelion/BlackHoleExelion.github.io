@@ -1,0 +1,80 @@
+---
+import type { Project } from '../data/resume';
+import Placeholder from './Placeholder.astro';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class:list={['card', 'project', { featured: project.featured }]}>
+  <div class="project-head">
+    <div>
+      <h3>{project.title}</h3>
+      <p class="meta">{project.context} · {project.year}</p>
+    </div>
+    {project.featured && <span class="flag">Featured</span>}
+  </div>
+
+  <Placeholder kind={project.media} label={project.title} />
+
+  <ul class="highlights">
+    {project.highlights.map((h) => <li>{h}</li>)}
+  </ul>
+
+  <div class="metrics">
+    {project.metrics.map((m) => <span class="metric">{m}</span>)}
+  </div>
+
+  <div class="stack">
+    {project.stack.map((s) => <span class="badge">{s}</span>)}
+  </div>
+</article>
+
+<style>
+  .project {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .project.featured {
+    border-color: rgba(76, 194, 255, 0.45);
+  }
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  .meta {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin: 0.2rem 0 0;
+  }
+  .flag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    border: 1px solid rgba(76, 194, 255, 0.4);
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+    white-space: nowrap;
+  }
+  .highlights {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--text-dim);
+    font-size: 0.94rem;
+  }
+  .highlights li + li {
+    margin-top: 0.35rem;
+  }
+</style>

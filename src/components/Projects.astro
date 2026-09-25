@@ -1,0 +1,40 @@
+---
+import { projects } from '../data/resume';
+import ProjectCard from './ProjectCard.astro';
+
+const featured = projects.filter((p) => p.featured);
+const rest = projects.filter((p) => !p.featured);
+---
+
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <p class="section-sub">
+    Selected work across streaming data platforms, LLM systems, and applied machine learning.
+    Internal projects are shown with architecture diagrams and animated mockups (no sensitive data).
+  </p>
+
+  <div class="grid featured-grid">
+    {featured.map((p) => <ProjectCard project={p} />)}
+  </div>
+
+  <div class="grid">
+    {rest.map((p) => <ProjectCard project={p} />)}
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.4rem;
+  }
+  .featured-grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 1.4rem;
+  }
+  @media (min-width: 900px) {
+    .featured-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

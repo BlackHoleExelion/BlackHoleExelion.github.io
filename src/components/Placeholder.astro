@@ -1,0 +1,26 @@
+---
+interface Props {
+  kind: 'mockup' | 'diagram' | 'demo';
+  label: string;
+}
+
+const { kind, label } = Astro.props;
+
+const icons: Record<string, string> = {
+  mockup: '🖥️',
+  diagram: '📐',
+  demo: '▶️',
+};
+
+const kindLabels: Record<string, string> = {
+  mockup: 'Animated mockup',
+  diagram: 'Architecture diagram',
+  demo: 'Interactive demo',
+};
+---
+
+<div class="placeholder">
+  <span class="ph-icon">{icons[kind]}</span>
+  <span class="ph-label">{kindLabels[kind]} — placeholder</span>
+  <span>{label}</span>
+</div>

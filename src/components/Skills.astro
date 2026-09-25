@@ -1,0 +1,37 @@
+---
+import { skillGroups } from '../data/resume';
+---
+
+<section id="skills">
+  <h2 class="section-title">Skills</h2>
+  <p class="section-sub">
+    Grouped by domain. Placeholder: this section will become an interactive, filterable visualization.
+  </p>
+  <div class="groups">
+    {
+      skillGroups.map((g) => (
+        <div class="card group">
+          <h3>{g.label}</h3>
+          <div>
+            {g.skills.map((s) => (
+              <span class="badge">{s}</span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+  .group h3 {
+    margin: 0 0 0.7rem;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+</style>

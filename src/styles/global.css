@@ -1,0 +1,123 @@
+:root {
+  --bg: #0b1020;
+  --bg-soft: #111830;
+  --bg-card: #151d38;
+  --border: #24304f;
+  --text: #e6ebf5;
+  --text-dim: #9aa7c2;
+  --accent: #4cc2ff;
+  --accent-2: #7c5cff;
+  --radius: 14px;
+  --max-width: 1080px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+section {
+  padding: 4.5rem 1.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.9rem;
+  margin: 0 0 0.4rem;
+}
+
+.section-sub {
+  color: var(--text-dim);
+  margin: 0 0 2.2rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.18rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  margin: 0.15rem 0.15rem 0 0;
+}
+
+.metric {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(76, 194, 255, 0.14), rgba(124, 92, 255, 0.14));
+  border: 1px solid rgba(76, 194, 255, 0.35);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0.15rem 0.25rem 0 0;
+}
+
+/* Placeholder box for diagrams / mockups / demos */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 180px;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius);
+  background:
+    repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(76, 194, 255, 0.04) 12px, rgba(76, 194, 255, 0.04) 24px),
+    var(--bg-soft);
+  color: var(--text-dim);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.placeholder .ph-icon {
+  font-size: 1.6rem;
+}
+
+.placeholder .ph-label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: 3rem 1.1rem;
+  }
+}

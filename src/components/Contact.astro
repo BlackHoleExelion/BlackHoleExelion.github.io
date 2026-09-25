@@ -1,0 +1,33 @@
+---
+import { profile } from '../data/resume';
+---
+
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <p class="section-sub">Open to data science and data engineering opportunities.</p>
+  <div class="card contact-card">
+    <a href={`mailto:${profile.email}`}>{profile.email}</a>
+    <a href={profile.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+    <a href={`${import.meta.env.BASE_URL}/${profile.resumePdf}`}>Download Resume (PDF)</a>
+  </div>
+  <footer>
+    <p>© {new Date().getFullYear()} {profile.name} · Built with Astro · Hosted on GitHub Pages</p>
+  </footer>
+</section>
+
+<style>
+  .contact-card {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-weight: 600;
+  }
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+</style>

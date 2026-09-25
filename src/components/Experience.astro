@@ -1,0 +1,94 @@
+---
+import { experience, education } from '../data/resume';
+---
+
+<section id="experience">
+  <h2 class="section-title">Experience</h2>
+  <p class="section-sub">Professional roles in data science and data engineering.</p>
+
+  <div class="timeline">
+    {
+      experience.map((job) => (
+        <div class="card item">
+          <div class="item-head">
+            <div>
+              <h3>{job.role}</h3>
+              <p class="org">
+                {job.org} · {job.location}
+              </p>
+            </div>
+            <span class="period">{job.period}</span>
+          </div>
+          <ul>
+            {job.bullets.map((b) => (
+              <li>{b}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+
+  <h2 class="section-title" style="margin-top: 3.5rem;">Education</h2>
+  <div class="timeline">
+    {
+      education.map((e) => (
+        <div class="card item">
+          <div class="item-head">
+            <div>
+              <h3>{e.degree}</h3>
+              <p class="org">
+                {e.school} · {e.location}
+              </p>
+            </div>
+            <span class="period">{e.period}</span>
+          </div>
+          <div>
+            {e.notes.map((n) => (
+              <span class="badge">{n}</span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .item-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  .org {
+    color: var(--text-dim);
+    margin: 0.2rem 0 0;
+    font-size: 0.92rem;
+  }
+  .period {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  ul {
+    margin: 0.8rem 0 0;
+    padding-left: 1.1rem;
+    color: var(--text-dim);
+    font-size: 0.94rem;
+  }
+  li + li {
+    margin-top: 0.35rem;
+  }
+</style>

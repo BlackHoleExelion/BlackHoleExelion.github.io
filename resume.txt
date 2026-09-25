@@ -1,0 +1,70 @@
+Ximo Liang
+(123)456-7890 | myemail@hotmail.com | https://www.linkedin.com/in/mylinkedin/
+
+SKILLS
+Python, SQL, R, REST/WebSocket APIs, MCP, LLM, Agentic Tool Orchestration, RAG, HuggingFace, vLLM, Kafka, Spark, ETL, ClickHouse, NoSQL, Elasticsearch, Redis, Scikit-learn, TensorFlow, AutoGluon, MLflow, Docker, Kubernetes, Linux, Git, GCP, AWS
+
+PROJECTS
+Real‑time GPS Analytics and Dispatch System (Public Security Section, 2026)
+•	Engineered a production streaming pipeline ingesting real‑time GPS tracking data from police vehicle logs via H3 hexagonal indexing, Kafka, and ClickHouse, alongside incremental ETL for occurrence data with UTM‑to‑WGS84 transformation and automated H3 enrichment—reducing end‑to‑end data latency from 2‑day batch cycles to <500ms streaming while persisting millions of GPS positions and occurrence records for millisecond queries.
+•	Deployed an open‑source LLM via vLLM serving a quantized 3.8B model behind a streaming FastAPI proxy, enabling natural‑language hex‑area summaries and dispatch briefings on the dashboard with sub‑2‑second first‑token latency and token‑by‑token streaming to the frontend.
+•	Built a low‑latency async FastAPI dashboard with Redis caching exposing patrol coverage heatmaps, occurrence risk maps, and AutoGluon and MLflow based time-series predictions via REST/WebSocket endpoints, paired with a deck.gl/Mapbox GL 3D hex visualization frontend—reducing patrol blind‑spot identification time by 92% with sub‑5‑second refresh cycles across the Halton Region operational area.
+LLM Trading Agent with MCP Tool Orchestration (Personal Project, 2025)
+•	Built an autonomous LLM agent system on DeepSeek-V3.2-Exp, orchestrating 40+ tools across three MCP servers for execution, market data, fundamentals, sentiment, and real-time web search over 10-minute decision cycles.
+•	Engineered a custom FastMCP-based Alpaca server with 31+ reusable tools, source-prefixed tool routing, multi-round function calling, and tiktoken-based context management to keep long-running agent workflows under a 100K-token budget.
+•	Developed a compact market-context injection pipeline and API-based reliability layer with pre-trade validation, risk controls, circuit breakers, and structured JSON audit logs, reducing LLM tool-call iterations by approximately 60%.
+Hybrid Search Platform for Police Reports (Public Security Section, 2025)
+•	Engineered a production-grade ETL and semantic indexing pipeline to ingest, normalize, deduplicate, enrich, and embed large-scale police reports using deep‑learning model (Sentence‑Transformers) and scalable preprocessing. Built incremental and batch ETL flows with automated monitoring and fault-tolerant, dockerized deployment that reduced regular ETL processing time by 99.9%, and persistently stores data in a distributed Elasticsearch environment to enable millisecond search at million‑document level.
+•	Developed a low‑latency async API exposing flexible endpoints with efficient caching and pagination to support high speed hybrid (lexical + semantic) queries. Paired with a web-based frontend offering real‑time visualizations and investigator workflows, the solution expanded the searchable corpus size by 113% while preserving millisecond responses.
+Online Expertise Chatbot (Personal Project, 2024)
+•	Engineered an AI-driven chatbot to respond dynamically to inquiries about expertise, projects, and skills, integrating GPT/Gemini via REST APIs and enhancing responses using LangChain-based Retrieval-Augmented Generation.
+•	Built a responsive frontend and a real-time data visualization dashboard with Vue.js, amCharts5, and Chart.js; leveraged NoSQL database on Google Cloud Platform and a Dockerized Flask API on a GCP virtual machine to track sessions with 99.9% uptime and scalability.
+Automatic Cartridge Case Image Segmentation and Annotation (Public Security Section, 2023)
+•	Developed an online solution that uses image processing and unsupervised deep learning to automate segmentation and annotation of cartridge case images, for Ontario's Centre of Forensic Sciences, cutting processing time from 2 hours to 8 minutes per batch.
+•	Utilized a tech stack including OpenCV, the SAM Model, PyTorch, and CUDA on Google Colab.
+Cloud Data Migration and Pipeline Design for Imaging Analytics (Healthcare Industry, 2020 - 2021)
+•	Led migration of over 10 TB of data from legacy HPC systems to a scalable Snowflake data warehouse with rigorous validation and security.
+•	Designed automated, end-to-end data pipelines in Dataiku using AWS S3, Lambda, and Glue for near real-time ingestion, reducing processing time by 25%.
+Data Modeling and Machine Learning for Neurological Response Analysis (Healthcare Industry, 2019 - 2022)
+•	Conducted EDA and built predictive models (78% accuracy) on high-dimensional structured and imaging data to identify brain stimulation responses.
+•	Developed containerized data wrangling and ML pipelines (using PCA, SVM, XGBoost, Random Forests, and CNNs) to process over 50 TB of unstructured data on distributed Linux systems, cutting computational time by 75% with Spark and Oracle Grid Engine.
+•	Visualized multi-dimensional insights using Seaborn, Matplotlib, JavaScript, Tableau, and PowerBI.
+Social Network Analysis for Video Gaming Network (Video Game Industry, 2018)
+•	Analyzed a network of 13,000+ Electronic Arts players with Similarity measures and Logistic Regression (72% accuracy) to predict player connections.
+•	Created interactive network graphs using Gephi and modeled data with R for strategic insights.
+•	Developed an NLP pipeline with SAS and R, achieving 85% accuracy in classifying user feedback and sentiment.
+
+PROFESSIONAL EXPERIENCE
+Halton Regional Police Service, Great Toronto Area, Canada							   May 2025 – Present
+Data Science Engineer
+•	Engineered real-time geospatial data pipelines for high-volume police GPS and occurrence data using Python, Kafka, ClickHouse, Uber H3, GeoJSON, UTM-to-WGS84 transformation, and incremental ETL, reducing latency from 2-day batch cycles to <500ms streaming while supporting millisecond queries over millions of records.
+•	Built low-latency async backend services with FastAPI, Redis, REST/WebSocket APIs, and distributed Linux deployments to serve patrol coverage heatmaps, occurrence risk maps, spatial aggregations, and operational dashboards with sub-5-second refresh cycles.
+•	Deployed an open-source LLM inference layer using vLLM, a quantized 3.8B model, and a streaming FastAPI proxy, enabling natural-language hex-area summaries and dispatch briefings with sub-2-second first-token latency.
+•	Developed a production-grade hybrid search and analytics platform using Elasticsearch, Sentence-Transformers, AutoGluon, MLflow, Dockerized ETL, caching, deduplication, and spatial indexing, reducing routine ETL time by 99.9%, expanding searchable corpus capacity by 113%, and reducing patrol blind-spot identification time by 92%.
+University of Pennsylvania, Philadelphia, USA										 May 2019 - April 2022
+Data Scientist
+•	Conducted exploratory data analysis, data modeling, machine learning, and data visualization on over 50TB high-dimensional structured data and unstructured data including imaging, physiological signal data, using Python, R, Matlab, Bash, Docker, Singularity, Spark, Oracle Grid Engine on HPC clusters and cloud platforms.
+•	Worked on 10+ data acquisition, ETL processes, and data processing pipelines, and performed data integration, wrangling, modeling, model selection, validation and hyperparameter tuning within a distributed Linux environment.
+•	Stored, managed, and organized big data across various platforms, encompassing storage nodes and cloud-based NoSQL platforms with API and CLI.
+•	Supported studies and publications with 100+ high quality charts, plots, tables, and interactive dashboard using tools such as Matplotlib, Seaborn, Ggplot2, D3.js, etc.
+•	The research resulted in papers published in several prestigious journals, including Nature.
+Electronic Arts, Redwood City, USA											   June 2018 - September 2018
+Data Analysis Intern
+•	Led comprehensive network analysis on a dataset spanning 13,000+ players by designing and implementing advanced similarity measures alongside logistic regression models, ultimately achieving a predictive accuracy of 72% in forecasting player connections.
+•	Developed and refined interactive network visualizations using Gephi and R, translating complex player interaction patterns into strategic insights that directly informed game design enhancements and strengthened community engagement.
+
+EDUCATION
+Drexel University, Philadelphia, USA															 March 2019
+Master of Science in Business Statistics	
+•	Member of Beta Gamma Sigma Honor Society
+•	GPA: 3.97/4
+
+PUBLICATIONS
+•	Non-invasively targeting, probing and modulating a deep brain circuit for depression alleviation
+Nature Mental Health, 1(12): 1033-1042.
+•	Resting fMRI-guided TMS evokes subgenual anterior cingulate response in depression
+NeuroImage, 120963.
+•	How does functional connectivity relate to induced TMS effects on brain activity?
+Brain Stimulation: Basic, Translational, and Clinical Research in Neuromodulation, 14(6): 1722.
+•	Probing the Subgenual Anterior Cingulate Using Interleaved TMS/fMRI and Functional Connectivity Mapping
+Biological Psychiatry, 87(9): S434.

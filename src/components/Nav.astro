@@ -1,0 +1,71 @@
+---
+import { profile } from '../data/resume';
+
+const links = [
+  { href: '#projects', label: 'Projects' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#publications', label: 'Publications' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">{profile.name}</a>
+    <nav>
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      <a class="cta" href={`${import.meta.env.BASE_URL}/${profile.resumePdf}`}>Resume PDF</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(11, 16, 32, 0.8);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .brand {
+    font-weight: 700;
+    color: var(--text);
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+  }
+  nav a:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .cta {
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 0.3rem 0.8rem;
+    color: var(--accent) !important;
+  }
+  @media (max-width: 640px) {
+    nav {
+      gap: 0.7rem;
+      font-size: 0.85rem;
+    }
+  }
+</style>

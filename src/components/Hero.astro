@@ -1,0 +1,81 @@
+---
+import { profile } from '../data/resume';
+---
+
+<section id="top" class="hero">
+  <!-- Placeholder: subtle animated data-viz background (particles / network graph) goes here -->
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="kicker">{profile.title} · {profile.location}</p>
+    <h1>{profile.name}</h1>
+    <p class="tagline">{profile.tagline}</p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">View Projects</a>
+      <a class="btn" href={profile.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href={`mailto:${profile.email}`}>Email</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    max-width: none;
+    padding: 7rem 1.5rem 6rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(600px 300px at 20% 20%, rgba(76, 194, 255, 0.12), transparent),
+      radial-gradient(500px 260px at 80% 30%, rgba(124, 92, 255, 0.12), transparent);
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .kicker {
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    margin: 0.3rem 0 0.8rem;
+  }
+  .tagline {
+    color: var(--text-dim);
+    max-width: 640px;
+    margin: 0 auto 1.8rem;
+    font-size: 1.08rem;
+  }
+  .actions {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.6rem 1.3rem;
+    color: var(--text);
+    background: var(--bg-card);
+    font-weight: 600;
+  }
+  .btn:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+  }
+  .btn.primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    border: none;
+    color: #06101f;
+  }
+</style>
