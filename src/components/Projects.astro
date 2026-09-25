@@ -4,7 +4,7 @@ import ProjectCard from './ProjectCard.astro';
 
 const featured = projects.filter((p) => p.featured);
 const rest = projects.filter((p) => !p.featured);
-const filters = ['All work', 'Data systems', 'Applied ML', 'Research'];
+const filters = ['All selected work', 'Data systems', 'Applied ML', 'Research'];
 ---
 
 <section id="projects">
@@ -38,7 +38,7 @@ const filters = ['All work', 'Data systems', 'Applied ML', 'Research'];
       const filter = button.dataset.filter;
       let visible = 0;
       projectCards.forEach((card) => {
-        const show = filter === 'All work' || card.dataset.category === filter;
+        const show = filter === 'All selected work' || card.dataset.category === filter;
         card.hidden = !show;
         if (show) visible += 1;
       });
