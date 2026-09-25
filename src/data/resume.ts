@@ -19,7 +19,7 @@ export const skillGroups = [
     skills: ['Kafka', 'Spark', 'ETL', 'ClickHouse', 'Elasticsearch', 'Redis', 'MSSQL', 'NoSQL', 'Snowflake'],
   },
   {
-    label: 'ML / AI',
+    label: 'Machine Learning / AI',
     skills: [
       'LLM',
       'RAG',
@@ -81,7 +81,6 @@ export const projects: Project[] = [
     title: 'LLM Trading Agent with MCP Tool Orchestration',
     context: 'Personal Project',
     year: '2025',
-    featured: true,
     media: 'diagram',
     visual: 'agent',
     category: 'Data systems',
@@ -97,7 +96,6 @@ export const projects: Project[] = [
     title: 'Hybrid Search Platform for Police Reports',
     context: 'Public Safety',
     year: '2025',
-    featured: true,
     media: 'mockup',
     visual: 'search',
     category: 'Data systems',
@@ -151,12 +149,12 @@ export const projects: Project[] = [
     metrics: ['10+ TB migrated', '25% faster processing'],
   },
   {
-    title: 'ML for Neurological Response Analysis',
-    context: 'Healthcare / Research',
+    title: 'Machine Learning for Neurological Response Analysis',
+    context: 'Healthcare',
     year: '2019–2022',
     media: 'diagram',
     visual: 'neuro',
-    category: 'Research',
+    category: 'Applied ML',
     highlights: [
       `Conducted EDA and built predictive models (78% accuracy) on high-dimensional structured and imaging data to identify brain stimulation responses.`,
       `Developed containerized data wrangling and ML pipelines (using PCA, SVM, XGBoost, Random Forests, and CNNs) to process over 50 TB of unstructured data on distributed Linux systems, cutting computational time by 75% with Spark and Oracle Grid Engine.`,
@@ -171,7 +169,7 @@ export const projects: Project[] = [
     year: '2018',
     media: 'mockup',
     visual: 'network',
-    category: 'Research',
+    category: 'Applied ML',
     highlights: [
       `Analyzed a network of 13,000+ Electronic Arts players with Similarity measures and Logistic Regression (72% accuracy) to predict player connections.`,
       `Created interactive network graphs using Gephi and modeled data with R for strategic insights.`,
