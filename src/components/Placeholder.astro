@@ -115,11 +115,41 @@ const kindLabels: Record<string, string> = { mockup: 'Concept UI', diagram: 'Sys
       </svg>
     )}
     {visual === 'neuro' && (
-      <svg viewBox="0 0 480 180" fill="none">
-        <g stroke="#8faaa0" stroke-opacity=".35"><path d="M80 91L151 48L219 81L285 39L390 74M80 91L150 139L219 81L287 134L390 74M151 48L150 139M285 39L287 134"/></g>
-        <g fill="#171c18" stroke="#8faaa0"><circle cx="80" cy="91" r="10"/><circle cx="151" cy="48" r="8"/><circle cx="150" cy="139" r="8"/><circle cx="219" cy="81" r="13" stroke="#d2ed78"/><circle cx="285" cy="39" r="8"/><circle cx="287" cy="134" r="8"/><circle cx="390" cy="74" r="10"/></g>
-        <circle cx="219" cy="81" r="4" fill="#d2ed78"/><path d="M219 68V29M219 94V148" stroke="#d6a778" stroke-dasharray="3 4"/>
-        <g fill="#a4aaa0" font-family="monospace" font-size="8"><text x="179" y="20">MODEL / VALIDATE</text><text x="186" y="164">SIGNAL → RESPONSE</text></g>
+      <svg viewBox="0 0 480 220" fill="none">
+        <rect x="12" y="10" width="456" height="200" fill="#141914" stroke="#465144"/>
+        <path d="M12 37H468" stroke="#465144"/>
+        <circle cx="28" cy="24" r="3" fill="#d6a778"/><circle cx="39" cy="24" r="3" fill="#8faaa0"/><circle cx="50" cy="24" r="3" fill="#d2ed78"/>
+        <text x="67" y="27" fill="#a4aaa0" font-family="monospace" font-size="8" letter-spacing="1">fMRI / STATISTICAL RESPONSE MAPPING</text>
+
+        <rect x="25" y="48" width="235" height="142" fill="#171c18" stroke="#303830"/>
+        <text x="37" y="64" fill="#a4aaa0" font-family="monospace" font-size="7" letter-spacing=".7">FUNCTIONAL BRAIN IMAGE / CONCEPT</text>
+        <path d="M142 83C125 70 96 75 82 92C69 108 76 130 91 140C103 149 112 163 132 166C144 168 153 160 161 151C172 161 185 168 198 163C215 156 215 142 229 132C245 121 246 99 230 86C215 73 189 74 174 85C163 93 155 94 142 83Z" fill="#20291e" stroke="#8faaa0" stroke-width="1.2"/>
+        <path d="M158 91C154 108 155 132 161 151" stroke="#8faaa0" stroke-opacity=".55"/>
+        <path d="M112 92C104 104 105 120 117 128M196 91C207 103 204 120 193 130M130 144C140 137 151 137 161 143M177 145C185 139 193 138 200 140" stroke="#8faaa0" stroke-opacity=".38"/>
+        <ellipse cx="187" cy="111" rx="31" ry="23" fill="#d6a778" fill-opacity=".18"/>
+        <ellipse cx="187" cy="111" rx="22" ry="16" fill="#d2ed78" fill-opacity=".18" stroke="#d2ed78" stroke-width="1.2"/>
+        <circle cx="187" cy="111" r="4" fill="#d2ed78"/>
+        <path d="M187 90V74H224" stroke="#d2ed78" stroke-width="1"/>
+        <rect x="195" y="68" width="56" height="15" fill="#20291e" stroke="#465144"/>
+        <text x="200" y="78" fill="#d2ed78" font-family="monospace" font-size="6">HOTSPOT</text>
+        <g fill="#a4aaa0" font-family="monospace" font-size="6"><text x="37" y="179">MODEL-ESTIMATED ASSOCIATION</text></g>
+
+        <rect x="274" y="48" width="181" height="65" fill="#171c18" stroke="#465144"/>
+        <text x="286" y="63" fill="#a4aaa0" font-family="monospace" font-size="7" letter-spacing=".6">VOXEL-WISE RESPONSE</text>
+        <path d="M287 99H443M287 80H443" stroke="#8faaa0" stroke-opacity=".18"/>
+        <path d="M289 96L303 92L315 94L329 85L344 90L357 72L370 81L383 66L397 76L412 59L426 69L441 56" stroke="#d2ed78" stroke-width="1.5"/>
+        <circle cx="383" cy="66" r="3" fill="#d2ed78"/><circle cx="412" cy="59" r="3" fill="#d6a778"/>
+        <text x="287" y="107" fill="#727a70" font-family="monospace" font-size="6">fMRI SIGNAL / MODEL FIT</text>
+
+        <rect x="274" y="123" width="181" height="67" fill="#171c18" stroke="#465144"/>
+        <text x="286" y="138" fill="#a4aaa0" font-family="monospace" font-size="7" letter-spacing=".6">STATISTICAL INFERENCE</text>
+        <rect x="286" y="147" width="70" height="29" fill="#20291e" stroke="#465144"/><rect x="365" y="147" width="78" height="29" fill="#20291e" stroke="#d2ed78" stroke-opacity=".7"/>
+        <text x="295" y="159" fill="#a4aaa0" font-family="monospace" font-size="6">FEATURES</text><text x="295" y="169" fill="#f0efe8" font-family="monospace" font-size="7">50+ TB</text>
+        <text x="372" y="159" fill="#a4aaa0" font-family="monospace" font-size="6">PREDICTED</text><text x="372" y="169" fill="#d2ed78" font-family="monospace" font-size="7">78% ACC.</text>
+        <path d="M356 161H365" stroke="#d2ed78"/><path d="M360 158L364 161L360 164" stroke="#d2ed78"/>
+
+        <text x="25" y="202" fill="#727a70" font-family="monospace" font-size="6">fMRI + CLINICAL DATA → MODEL → ASSOCIATED BRAIN REGION</text>
+        <text x="374" y="202" fill="#d6a778" font-family="monospace" font-size="6">ASSOCIATION ≠ CAUSATION</text>
       </svg>
     )}
     {visual === 'network' && (
