@@ -4,37 +4,126 @@ import ProjectCard from './ProjectCard.astro';
 
 const featured = projects.filter((p) => p.featured);
 const rest = projects.filter((p) => !p.featured);
+const filters = ['All work', 'Data systems', 'Applied ML', 'Research'];
 ---
 
 <section id="projects">
-  <h2 class="section-title">Projects</h2>
-  <p class="section-sub">
-    Selected work across streaming data platforms, LLM systems, and applied machine learning.
-    Internal projects are shown with architecture diagrams and animated mockups (no sensitive data).
-  </p>
-
-  <div class="grid featured-grid">
-    {featured.map((p) => <ProjectCard project={p} />)}
+  <div class="section-heading">
+    <div><span class="section-index">01 / Selected work</span><h2 class="section-title">Systems with<br />measurable impact.</h2></div>
+    <p class="section-sub">A selection of data platforms, machine-learning work, and research. Internal projects use conceptual visuals and contain no operational data.</p>
   </div>
 
-  <div class="grid">
+  <div class="project-toolbar">
+    <div class="filters" role="group" aria-label="Filter projects">
+      {filters.map((filter, index) => <button class="filter-button" type="button" data-filter={filter} aria-pressed={index === 0 ? 'true' : 'false'}>{filter}<span>{index === 0 ? String(projects.length).padStart(2, '0') : ''}</span></button>)}
+    </div>
+    <p class="project-count" aria-live="polite"><span id="visible-project-count">{String(projects.length).padStart(2, '0')}</span> PROJECTS</p>
+  </div>
+
+  <div class="grid project-grid">
+    {featured.map((p) => <ProjectCard project={p} />)}
     {rest.map((p) => <ProjectCard project={p} />)}
   </div>
+  <p class="empty-state" hidden>No projects in this category yet.</p>
 </section>
 
+<script>
+  const projectCards = [...document.querySelectorAll<HTMLElement>('.project[data-category]')];
+  const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('.filter-button')];
+  const count = document.querySelector<HTMLElement>('#visible-project-count');
+  const emptyState = document.querySelector<HTMLElement>('.empty-state');
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      let visible = 0;
+      projectCards.forEach((card) => {
+        const show = filter === 'All work' || card.dataset.category === filter;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      filterButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+      if (count) count.textContent = String(visible).padStart(2, '0');
+      if (emptyState) emptyState.hidden = visible > 0;
+    });
+  });
+</script>
+
 <style>
+  .project-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  .filter-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 38px;
+    padding: 0.4rem 0.65rem;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-dim);
+    font: inherit;
+    font-size: 0.77rem;
+    cursor: pointer;
+  }
+  .filter-button:hover,
+  .filter-button[aria-pressed='true'] {
+    border-color: var(--border);
+    color: var(--accent);
+  }
+  .filter-button span {
+    font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.62rem;
+  }
+  .project-count {
+    flex: 0 0 auto;
+    margin: 0;
+    color: var(--text-faint);
+    font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1.4rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    background: var(--border);
   }
-  .featured-grid {
-    grid-template-columns: 1fr;
-    margin-bottom: 1.4rem;
+  .empty-state {
+    padding: 2rem;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    text-align: center;
   }
-  @media (min-width: 900px) {
-    .featured-grid {
-      grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 760px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .project-toolbar {
+      align-items: flex-start;
+    }
+    .project-count {
+      padding-top: 0.6rem;
+    }
+  }
+  @media (max-width: 480px) {
+    .project-toolbar {
+      flex-direction: column;
+    }
+    .project-count {
+      padding-top: 0;
     }
   }
 </style>

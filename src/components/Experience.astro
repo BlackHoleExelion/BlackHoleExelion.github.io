@@ -3,52 +3,45 @@ import { experience, education } from '../data/resume';
 ---
 
 <section id="experience">
-  <h2 class="section-title">Experience</h2>
-  <p class="section-sub">Professional roles in data science and data engineering.</p>
+  <div class="section-heading">
+    <div><span class="section-index">03 / Background</span><h2 class="section-title">Built across<br />disciplines.</h2></div>
+    <p class="section-sub">A career connecting production engineering, applied research, and analytical problem-solving.</p>
+  </div>
 
-  <div class="timeline">
+  <div class="timeline experience-timeline">
     {
-      experience.map((job) => (
-        <div class="card item">
+      experience.map((job, index) => (
+        <article class="item">
+          <span class="item-index">0{index + 1}</span>
           <div class="item-head">
             <div>
               <h3>{job.role}</h3>
-              <p class="org">
-                {job.org} · {job.location}
-              </p>
+              <p class="org">{job.org} <span>/</span> {job.location}</p>
             </div>
             <span class="period">{job.period}</span>
           </div>
           <ul>
-            {job.bullets.map((b) => (
-              <li>{b}</li>
-            ))}
+            {job.bullets.map((b) => <li>{b}</li>)}
           </ul>
-        </div>
+        </article>
       ))
     }
   </div>
 
-  <h2 class="section-title" style="margin-top: 3.5rem;">Education</h2>
-  <div class="timeline">
+  <div class="education-heading"><span class="section-index">Education</span><span class="education-line"></span></div>
+  <div class="education-list">
     {
       education.map((e) => (
-        <div class="card item">
+        <article class="education-item">
           <div class="item-head">
             <div>
               <h3>{e.degree}</h3>
-              <p class="org">
-                {e.school} · {e.location}
-              </p>
+              <p class="org">{e.school} <span>/</span> {e.location}</p>
             </div>
             <span class="period">{e.period}</span>
           </div>
-          <div>
-            {e.notes.map((n) => (
-              <span class="badge">{n}</span>
-            ))}
-          </div>
-        </div>
+          <div class="education-notes">{e.notes.map((n) => <span>{n}</span>)}</div>
+        </article>
       ))
     }
   </div>
@@ -58,37 +51,104 @@ import { experience, education } from '../data/resume';
   .timeline {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+  }
+  .item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 1.1rem;
+    padding: 1.4rem 0 1.65rem;
+    border-top: 1px solid var(--border);
+  }
+  .item-index {
+    padding-top: 0.25rem;
+    color: var(--accent);
+    font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.68rem;
   }
   .item-head {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.2rem;
     flex-wrap: wrap;
   }
   h3 {
     margin: 0;
-    font-size: 1.1rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.45rem;
+    font-weight: 400;
+    letter-spacing: -0.025em;
   }
   .org {
     color: var(--text-dim);
-    margin: 0.2rem 0 0;
+    margin: 0.3rem 0 0;
     font-size: 0.92rem;
+  }
+  .org span {
+    margin: 0 0.25rem;
+    color: var(--text-faint);
   }
   .period {
     color: var(--accent);
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.68rem;
     white-space: nowrap;
   }
   ul {
-    margin: 0.8rem 0 0;
-    padding-left: 1.1rem;
+    margin: 1rem 0 0;
+    padding-left: 1rem;
     color: var(--text-dim);
-    font-size: 0.94rem;
+    font-size: 0.85rem;
   }
   li + li {
-    margin-top: 0.35rem;
+    margin-top: 0.45rem;
+  }
+  li::marker {
+    color: var(--accent);
+  }
+  .education-heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+  .education-line {
+    height: 1px;
+    flex: 1;
+    background: var(--border);
+  }
+  .education-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.3rem 0 0 3.4rem;
+  }
+  .education-item h3 {
+    font-size: 1.25rem;
+  }
+  .education-notes {
+    display: flex;
+    gap: 0.5rem 1rem;
+    flex-wrap: wrap;
+    color: var(--text-faint);
+    font-size: 0.75rem;
+  }
+  .education-notes span::before {
+    margin-right: 0.45rem;
+    color: var(--accent);
+    content: '↳';
+  }
+  @media (max-width: 560px) {
+    .item {
+      grid-template-columns: 30px minmax(0, 1fr);
+      gap: 0.6rem;
+    }
+    .period {
+      white-space: normal;
+    }
+    .education-item {
+      padding-left: 2.25rem;
+    }
   }
 </style>

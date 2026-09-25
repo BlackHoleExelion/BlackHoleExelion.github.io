@@ -1,26 +1,85 @@
 ---
 interface Props {
   kind: 'mockup' | 'diagram' | 'demo';
+  visual: string;
   label: string;
 }
 
-const { kind, label } = Astro.props;
-
-const icons: Record<string, string> = {
-  mockup: '🖥️',
-  diagram: '📐',
-  demo: '▶️',
-};
-
-const kindLabels: Record<string, string> = {
-  mockup: 'Animated mockup',
-  diagram: 'Architecture diagram',
-  demo: 'Interactive demo',
-};
+const { kind, visual, label } = Astro.props;
+const kindLabels: Record<string, string> = { mockup: 'Concept UI · Placeholder', diagram: 'System map · Placeholder', demo: 'Interactive demo · Placeholder' };
 ---
 
-<div class="placeholder">
-  <span class="ph-icon">{icons[kind]}</span>
-  <span class="ph-label">{kindLabels[kind]} — placeholder</span>
-  <span>{label}</span>
+<div class:list={['placeholder', kind]} aria-label={`${kindLabels[kind]} for ${label}`}>
+  <div class="ph-topline"><span class="ph-status">CONCEPT VISUAL</span><span>NOT OPERATIONAL DATA</span></div>
+  <div class="ph-art" aria-hidden="true">
+    {visual === 'map' && (
+      <svg viewBox="0 0 480 180" fill="none">
+        <g stroke="#8faaa0" stroke-opacity=".24"><path d="M0 45H480M0 90H480M0 135H480M60 0V180M120 0V180M180 0V180M240 0V180M300 0V180M360 0V180M420 0V180"/></g>
+        <g fill="#d2ed78" fill-opacity=".18" stroke="#d2ed78" stroke-opacity=".72" stroke-width="1.3">
+          <path d="M154 43L174 32L194 43V65L174 76L154 65Z"/><path d="M194 43L214 32L234 43V65L214 76L194 65Z"/><path d="M174 76L194 65L214 76V98L194 109L174 98Z"/><path d="M214 76L234 65L254 76V98L234 109L214 98Z"/><path d="M234 109L254 98L274 109V131L254 142L234 131Z"/>
+        </g>
+        <path d="M75 128C111 124 124 89 158 89S204 120 237 90 297 47 334 68 385 110 427 43" stroke="#d6a778" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <g fill="#d6a778"><circle cx="75" cy="128" r="3"/><circle cx="237" cy="90" r="3"/><circle cx="427" cy="43" r="3"/></g>
+      </svg>
+    )}
+    {visual === 'agent' && (
+      <svg viewBox="0 0 480 180" fill="none">
+        <g stroke="#8faaa0" stroke-opacity=".42"><path d="M80 90H178M302 90H400M240 38V72M240 108V142"/></g>
+        <rect x="28" y="62" width="105" height="56" fill="#171c18" stroke="#465144"/><rect x="178" y="60" width="124" height="60" fill="#20291e" stroke="#d2ed78"/><rect x="347" y="62" width="105" height="56" fill="#171c18" stroke="#465144"/>
+        <g fill="#f0efe8" font-family="monospace" font-size="10"><text x="49" y="86">CONTEXT</text><text x="45" y="102" fill="#a4aaa0">100K TOKENS</text><text x="198" y="87" fill="#d2ed78">AGENT LOOP</text><text x="197" y="103" fill="#a4aaa0">PLAN → ACT → CHECK</text><text x="376" y="86">TOOL APIs</text><text x="373" y="102" fill="#a4aaa0">3 SERVERS / 40+</text></g>
+        <g fill="#d2ed78"><circle cx="80" cy="90" r="3"/><circle cx="240" cy="38" r="3"/><circle cx="240" cy="142" r="3"/><circle cx="400" cy="90" r="3"/></g>
+        <g fill="#8faaa0" font-family="monospace" font-size="8"><text x="205" y="29">RISK GATES</text><text x="203" y="158">AUDIT TRAIL</text></g>
+      </svg>
+    )}
+    {visual === 'search' && (
+      <svg viewBox="0 0 480 180" fill="none">
+        <rect x="32" y="20" width="416" height="32" fill="#171c18" stroke="#465144"/><circle cx="49" cy="36" r="5" stroke="#d2ed78"/><path d="M53 40L58 45" stroke="#d2ed78"/><text x="70" y="40" fill="#a4aaa0" font-family="monospace" font-size="9">QUERY: semantic + lexical retrieval</text>
+        <g><rect x="32" y="68" width="190" height="40" fill="#171c18" stroke="#465144"/><rect x="32" y="118" width="190" height="40" fill="#171c18" stroke="#465144"/><rect x="258" y="68" width="190" height="40" fill="#171c18" stroke="#465144"/><rect x="258" y="118" width="190" height="40" fill="#171c18" stroke="#465144"/></g>
+        <g fill="#d2ed78" font-family="monospace" font-size="9"><text x="45" y="86">LEXICAL SCORE</text><text x="45" y="136">VECTOR SCORE</text><text x="272" y="86">RANK FUSION</text><text x="272" y="136">RESULT INDEX</text></g>
+        <g fill="#8faaa0"><rect x="45" y="94" width="145" height="3"/><rect x="45" y="144" width="110" height="3"/><rect x="272" y="94" width="121" height="3"/><rect x="272" y="144" width="151" height="3"/></g>
+        <path d="M222 88H258M222 138H258" stroke="#8faaa0" stroke-dasharray="3 4"/>
+      </svg>
+    )}
+    {visual === 'chat' && (
+      <svg viewBox="0 0 480 180" fill="none">
+        <rect x="38" y="22" width="258" height="34" fill="#171c18" stroke="#465144"/><text x="54" y="43" fill="#a4aaa0" font-family="monospace" font-size="9">QUESTION / EXPERTISE & PROJECTS</text>
+        <rect x="154" y="72" width="284" height="66" fill="#20291e" stroke="#d2ed78"/><path d="M177 91H409M177 106H385M177 121H338" stroke="#8faaa0" stroke-opacity=".65"/><text x="177" y="85" fill="#d2ed78" font-family="monospace" font-size="8">RETRIEVAL → GROUNDED RESPONSE</text>
+        <path d="M64 87H128M128 87V112H154" stroke="#8faaa0" stroke-dasharray="3 4"/><circle cx="64" cy="87" r="5" fill="#d6a778"/>
+        <g fill="#8faaa0" font-family="monospace" font-size="8"><text x="38" y="154">PROFILE DATA</text><text x="182" y="158">CITATIONS / CONTEXT</text></g>
+      </svg>
+    )}
+    {visual === 'vision' && (
+      <svg viewBox="0 0 480 180" fill="none">
+        <rect x="96" y="10" width="288" height="160" fill="#171c18" stroke="#465144"/>
+        <g stroke="#8faaa0" stroke-opacity=".18"><path d="M96 50H384M96 90H384M96 130H384M156 10V170M216 10V170M276 10V170M336 10V170"/></g>
+        <ellipse cx="240" cy="92" rx="79" ry="47" stroke="#8faaa0" stroke-dasharray="3 4"/><ellipse cx="240" cy="92" rx="52" ry="30" stroke="#d2ed78" stroke-opacity=".8"/><ellipse cx="240" cy="92" rx="24" ry="14" fill="#d2ed78" fill-opacity=".12" stroke="#d2ed78"/>
+        <path d="M161 92H319M240 45V139" stroke="#d6a778" stroke-opacity=".5" stroke-dasharray="3 4"/><circle cx="240" cy="92" r="3" fill="#d2ed78"/>
+        <text x="113" y="28" fill="#a4aaa0" font-family="monospace" font-size="8">SEGMENTATION / CONCEPT</text>
+      </svg>
+    )}
+    {visual === 'warehouse' && (
+      <svg viewBox="0 0 480 180" fill="none">
+        <g stroke="#8faaa0" stroke-opacity=".48"><path d="M110 48H185M295 48H370M110 90H185M295 90H370M110 132H185M295 132H370"/><path d="M240 64V116" stroke-dasharray="3 4"/></g>
+        <g><rect x="33" y="32" width="77" height="32" fill="#171c18" stroke="#465144"/><rect x="33" y="74" width="77" height="32" fill="#171c18" stroke="#465144"/><rect x="33" y="116" width="77" height="32" fill="#171c18" stroke="#465144"/><rect x="185" y="32" width="110" height="116" fill="#20291e" stroke="#d2ed78"/><rect x="370" y="32" width="77" height="32" fill="#171c18" stroke="#465144"/><rect x="370" y="74" width="77" height="32" fill="#171c18" stroke="#465144"/><rect x="370" y="116" width="77" height="32" fill="#171c18" stroke="#465144"/></g>
+        <g fill="#a4aaa0" font-family="monospace" font-size="8"><text x="51" y="52">LEGACY</text><text x="53" y="94">OBJECTS</text><text x="51" y="136">BATCH</text><text x="219" y="88" fill="#d2ed78">VALIDATE</text><text x="212" y="103" fill="#d2ed78">& TRANSFORM</text><text x="383" y="52">WAREHOUSE</text><text x="393" y="94">MODELS</text><text x="389" y="136">SERVING</text></g>
+      </svg>
+    )}
+    {visual === 'neuro' && (
+      <svg viewBox="0 0 480 180" fill="none">
+        <g stroke="#8faaa0" stroke-opacity=".35"><path d="M80 91L151 48L219 81L285 39L390 74M80 91L150 139L219 81L287 134L390 74M151 48L150 139M285 39L287 134"/></g>
+        <g fill="#171c18" stroke="#8faaa0"><circle cx="80" cy="91" r="10"/><circle cx="151" cy="48" r="8"/><circle cx="150" cy="139" r="8"/><circle cx="219" cy="81" r="13" stroke="#d2ed78"/><circle cx="285" cy="39" r="8"/><circle cx="287" cy="134" r="8"/><circle cx="390" cy="74" r="10"/></g>
+        <circle cx="219" cy="81" r="4" fill="#d2ed78"/><path d="M219 68V29M219 94V148" stroke="#d6a778" stroke-dasharray="3 4"/>
+        <g fill="#a4aaa0" font-family="monospace" font-size="8"><text x="179" y="20">MODEL / VALIDATE</text><text x="186" y="164">SIGNAL → RESPONSE</text></g>
+      </svg>
+    )}
+    {visual === 'network' && (
+      <svg viewBox="0 0 480 180" fill="none">
+        <g stroke="#8faaa0" stroke-opacity=".38"><path d="M92 90L160 42L214 69L260 32L322 67L390 46M92 90L157 133L214 69L265 130L322 67L386 128M160 42L157 133M260 32L265 130M322 67L386 128M214 69L265 130"/></g>
+        <g fill="#171c18" stroke="#8faaa0"><circle cx="92" cy="90" r="8"/><circle cx="160" cy="42" r="7"/><circle cx="157" cy="133" r="7"/><circle cx="214" cy="69" r="11" stroke="#d2ed78"/><circle cx="260" cy="32" r="7"/><circle cx="265" cy="130" r="9" stroke="#d6a778"/><circle cx="322" cy="67" r="9"/><circle cx="390" cy="46" r="7"/><circle cx="386" cy="128" r="7"/></g>
+        <circle cx="214" cy="69" r="3" fill="#d2ed78"/><circle cx="265" cy="130" r="3" fill="#d6a778"/>
+        <text x="174" y="163" fill="#a4aaa0" font-family="monospace" font-size="8">13K+ NODES / RELATIONSHIP SIGNALS</text>
+      </svg>
+    )}
+  </div>
+  <div class="ph-bottomline"><span>{kindLabels[kind]}</span><span>VISUAL PLACEHOLDER</span></div>
 </div>

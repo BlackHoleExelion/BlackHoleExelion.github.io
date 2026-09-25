@@ -9,72 +9,135 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article class:list={['card', 'project', { featured: project.featured }]}>
-  <div class="project-head">
-    <div>
+<article class="project" data-category={project.category}>
+  <div class="project-visual"><Placeholder kind={project.media} visual={project.visual} label={project.title} /></div>
+  <div class="project-content">
+    <div class="project-meta"><span>{project.category}</span><span>{project.context} · {project.year}</span></div>
+    <div class="project-head">
       <h3>{project.title}</h3>
-      <p class="meta">{project.context} · {project.year}</p>
+      {project.featured && <span class="flag">Selected</span>}
     </div>
-    {project.featured && <span class="flag">Featured</span>}
-  </div>
-
-  <Placeholder kind={project.media} label={project.title} />
-
-  <ul class="highlights">
-    {project.highlights.map((h) => <li>{h}</li>)}
-  </ul>
-
-  <div class="metrics">
-    {project.metrics.map((m) => <span class="metric">{m}</span>)}
-  </div>
-
-  <div class="stack">
-    {project.stack.map((s) => <span class="badge">{s}</span>)}
+    <div class="metrics">
+      {project.metrics.map((m) => <span class="metric">{m}</span>)}
+    </div>
+    <details class="project-details">
+      <summary><span>Project notes</span><span class="detail-icon" aria-hidden="true">+</span></summary>
+      <div class="detail-content">
+        <ul class="highlights">{project.highlights.map((h) => <li>{h}</li>)}</ul>
+        <div class="stack-label">TOOLS & METHODS</div>
+        <div class="stack">{project.stack.map((s) => <span class="badge">{s}</span>)}</div>
+      </div>
+    </details>
   </div>
 </article>
 
 <style>
   .project {
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
+    min-width: 0;
+    background: var(--bg-card);
+    transition: background 180ms ease;
   }
-  .project.featured {
-    border-color: rgba(76, 194, 255, 0.45);
+  .project:hover {
+    background: #1b211c;
+  }
+  .project-visual {
+    padding: 0.75rem 0.75rem 0;
   }
   .project-head {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
+    justify-content: space-between;
     gap: 1rem;
   }
   h3 {
-    margin: 0;
-    font-size: 1.2rem;
+    max-width: 520px;
+    margin: 0.45rem 0 0.6rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.3rem, 2vw, 1.75rem);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 1.13;
   }
-  .meta {
-    color: var(--text-dim);
-    font-size: 0.85rem;
-    margin: 0.2rem 0 0;
+  .project-content {
+    padding: 1.25rem 1.25rem 0.75rem;
+  }
+  .project-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6rem;
+    color: var(--text-faint);
+    font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.59rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
   .flag {
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
     color: var(--accent);
-    border: 1px solid rgba(76, 194, 255, 0.4);
-    border-radius: 999px;
-    padding: 0.15rem 0.6rem;
+    font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     white-space: nowrap;
   }
-  .highlights {
-    margin: 0;
-    padding-left: 1.1rem;
+  .metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1rem;
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .project-details {
+    border-top: 1px solid var(--border);
+  }
+  .project-details summary {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: space-between;
     color: var(--text-dim);
-    font-size: 0.94rem;
+    font-size: 0.77rem;
+    cursor: pointer;
+    list-style: none;
+  }
+  .project-details summary::-webkit-details-marker {
+    display: none;
+  }
+  .detail-icon {
+    color: var(--accent);
+    font-size: 1.15rem;
+    transition: transform 150ms ease;
+  }
+  details[open] .detail-icon {
+    transform: rotate(45deg);
+  }
+  .detail-content {
+    padding: 0.15rem 0 0.75rem;
+  }
+  .highlights {
+    margin: 0 0 1.2rem;
+    padding-left: 1rem;
+    color: var(--text-dim);
+    font-size: 0.83rem;
   }
   .highlights li + li {
-    margin-top: 0.35rem;
+    margin-top: 0.55rem;
+  }
+  .stack-label {
+    margin-bottom: 0.45rem;
+    color: var(--text-faint);
+    font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.57rem;
+    letter-spacing: 0.1em;
+  }
+  @media (max-width: 760px) {
+    h3 {
+      font-size: 1.55rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .project,
+    .detail-icon {
+      transition: none;
+    }
   }
 </style>

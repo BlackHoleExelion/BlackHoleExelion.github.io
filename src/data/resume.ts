@@ -46,6 +46,7 @@ export const skillGroups = [
 ];
 
 export type ProjectMedia = 'mockup' | 'diagram';
+export type ProjectVisual = 'map' | 'agent' | 'search' | 'chat' | 'vision' | 'warehouse' | 'neuro' | 'network';
 
 export interface Project {
   title: string;
@@ -55,6 +56,8 @@ export interface Project {
   stack: string[];
   metrics: string[];
   media: ProjectMedia; // placeholder type shown on the card
+  visual: ProjectVisual;
+  category: 'Data systems' | 'Applied ML' | 'Research';
   featured?: boolean;
 }
 
@@ -65,6 +68,8 @@ export const projects: Project[] = [
     year: '2026',
     featured: true,
     media: 'mockup',
+    visual: 'map',
+    category: 'Data systems',
     highlights: [
       'Streaming pipeline ingesting real-time GPS data via H3 hexagonal indexing, Kafka, and ClickHouse — latency cut from 2-day batches to <500ms streaming.',
       'Open-source LLM served via vLLM (quantized 3.8B) behind a streaming FastAPI proxy for natural-language dispatch briefings.',
@@ -79,6 +84,8 @@ export const projects: Project[] = [
     year: '2025',
     featured: true,
     media: 'mockup',
+    visual: 'agent',
+    category: 'Data systems',
     highlights: [
       'Autonomous LLM agent orchestrating 40+ tools across three MCP servers on 10-minute decision cycles.',
       'Custom FastMCP-based Alpaca server with 31+ reusable tools, source-prefixed routing, and tiktoken-based context management under a 100K-token budget.',
@@ -93,6 +100,8 @@ export const projects: Project[] = [
     year: '2025',
     featured: true,
     media: 'mockup',
+    visual: 'search',
+    category: 'Data systems',
     highlights: [
       'Production ETL + semantic indexing pipeline (Sentence-Transformers) with incremental and batch flows, monitoring, and fault-tolerant dockerized deployment.',
       'Low-latency async API with caching and pagination for hybrid (lexical + semantic) queries over a million-document Elasticsearch cluster.',
@@ -105,6 +114,8 @@ export const projects: Project[] = [
     context: 'Personal Project',
     year: '2024',
     media: 'diagram',
+    visual: 'chat',
+    category: 'Applied ML',
     highlights: [
       'AI chatbot integrating GPT/Gemini via REST APIs with LangChain-based RAG.',
       'Vue.js frontend with real-time dashboards (amCharts5, Chart.js); Dockerized Flask API on GCP.',
@@ -117,6 +128,8 @@ export const projects: Project[] = [
     context: 'Forensic Science',
     year: '2023',
     media: 'diagram',
+    visual: 'vision',
+    category: 'Applied ML',
     highlights: [
       'Automated segmentation and annotation of cartridge case images using image processing and unsupervised deep learning for Ontario\u2019s Centre of Forensic Sciences.',
     ],
@@ -128,6 +141,8 @@ export const projects: Project[] = [
     context: 'Healthcare',
     year: '2020–2021',
     media: 'diagram',
+    visual: 'warehouse',
+    category: 'Data systems',
     highlights: [
       'Migrated 10+ TB from legacy HPC to a Snowflake data warehouse with rigorous validation and security.',
       'Automated end-to-end pipelines in Dataiku using AWS S3, Lambda, and Glue for near real-time ingestion.',
@@ -140,6 +155,8 @@ export const projects: Project[] = [
     context: 'Healthcare / Research',
     year: '2019–2022',
     media: 'diagram',
+    visual: 'neuro',
+    category: 'Research',
     highlights: [
       'Predictive models (78% accuracy) on high-dimensional structured and imaging data for brain stimulation response.',
       'Containerized ML pipelines (PCA, SVM, XGBoost, Random Forests, CNNs) processing 50+ TB on distributed Linux systems.',
@@ -152,6 +169,8 @@ export const projects: Project[] = [
     context: 'Video Game Industry',
     year: '2018',
     media: 'diagram',
+    visual: 'network',
+    category: 'Research',
     highlights: [
       'Analyzed a 13,000+ player network with similarity measures and logistic regression (72% accuracy).',
       'NLP pipeline with SAS and R achieving 85% accuracy on user feedback sentiment classification.',

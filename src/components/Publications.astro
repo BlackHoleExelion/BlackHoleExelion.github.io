@@ -3,16 +3,16 @@ import { publications } from '../data/resume';
 ---
 
 <section id="publications">
-  <h2 class="section-title">Publications</h2>
-  <p class="section-sub">Peer-reviewed research from my time at the University of Pennsylvania.</p>
-  <div class="card">
+  <div class="section-heading">
+    <div><span class="section-index">04 / Research</span><h2 class="section-title">Selected<br />publications.</h2></div>
+    <p class="section-sub">Peer-reviewed work in neuroscience and brain stimulation, developed during my research at the University of Pennsylvania.</p>
+  </div>
+  <div class="publication-layout">
+    <div class="publication-aside"><span class="publication-count">04</span><span>PEER-REVIEWED<br />PUBLICATIONS</span></div>
     <ol class="pubs">
       {
-        publications.map((p) => (
-          <li>
-            <span class="pub-title">{p.title}</span>
-            <span class="pub-venue">{p.venue}</span>
-          </li>
+        publications.map((p, index) => (
+          <li><span class="pub-index">0{index + 1}</span><div><span class="pub-title">{p.title}</span><span class="pub-venue">{p.venue}</span></div></li>
         ))
       }
     </ol>
@@ -20,20 +20,73 @@ import { publications } from '../data/resume';
 </section>
 
 <style>
+  .publication-layout {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+  .publication-aside {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding-top: 1.2rem;
+    color: var(--text-faint);
+    font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.59rem;
+    letter-spacing: 0.08em;
+  }
+  .publication-count {
+    color: var(--accent);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 4rem;
+    letter-spacing: -0.06em;
+    line-height: 1;
+  }
   .pubs {
     margin: 0;
-    padding-left: 1.3rem;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    list-style: none;
+  }
+  .pubs li {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 0.85rem;
+    padding: 1.15rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .pub-index {
+    padding-top: 0.2rem;
+    color: var(--accent);
+    font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.65rem;
   }
   .pub-title {
     display: block;
-    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.08rem;
+    line-height: 1.4;
   }
   .pub-venue {
+    display: block;
+    margin-top: 0.4rem;
     color: var(--text-dim);
     font-size: 0.9rem;
     font-style: italic;
+  }
+  @media (max-width: 700px) {
+    .publication-layout {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .publication-aside {
+      flex-direction: row;
+      align-items: center;
+    }
+    .publication-count {
+      font-size: 2.5rem;
+    }
   }
 </style>

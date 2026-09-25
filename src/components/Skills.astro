@@ -3,35 +3,112 @@ import { skillGroups } from '../data/resume';
 ---
 
 <section id="skills">
-  <h2 class="section-title">Skills</h2>
-  <p class="section-sub">
-    Grouped by domain. Placeholder: this section will become an interactive, filterable visualization.
-  </p>
-  <div class="groups">
+  <div class="section-heading">
+    <div><span class="section-index">02 / Toolkit</span><h2 class="section-title">Tools for the<br />whole data lifecycle.</h2></div>
+    <p class="section-sub">From ingestion and distributed compute to modeling and production APIs. A practical toolkit shaped by research and live systems.</p>
+  </div>
+  <div class="groups" aria-label="Skills grouped by discipline">
     {
-      skillGroups.map((g) => (
-        <div class="card group">
+      skillGroups.map((g, index) => (
+        <article class="group">
+          <div class="group-top"><span class="group-index">0{index + 1}</span><span class="group-total">{String(g.skills.length).padStart(2, '0')} TOOLS</span></div>
           <h3>{g.label}</h3>
-          <div>
-            {g.skills.map((s) => (
-              <span class="badge">{s}</span>
-            ))}
+          <div class="group-rule"><span style={`--rule-width: ${Math.min(100, 48 + g.skills.length * 5)}%`}></span></div>
+          <div class="skill-list">
+            {g.skills.map((s) => <span class="skill">{s}</span>)}
           </div>
-        </div>
+        </article>
       ))
     }
   </div>
+  <p class="skills-note"><span aria-hidden="true">↳</span> Focus areas span production data engineering, applied machine learning, and research computing.</p>
 </section>
 
 <style>
   .groups {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+  .group {
+    min-height: 215px;
+    padding: 1.25rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(21, 26, 22, 0.65);
+    transition: background 180ms ease;
+  }
+  .group:hover {
+    background: var(--bg-card);
+  }
+  .group-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .group-index {
+    color: var(--accent);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.1rem;
+  }
+  .group-total {
+    color: var(--text-faint);
+    font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.57rem;
+    letter-spacing: 0.08em;
   }
   .group h3 {
-    margin: 0 0 0.7rem;
-    font-size: 1rem;
+    margin: 1.4rem 0 0.65rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  .group-rule {
+    height: 1px;
+    margin-bottom: 0.8rem;
+    background: var(--border);
+  }
+  .group-rule span {
+    display: block;
+    width: var(--rule-width);
+    height: 1px;
+    background: var(--accent);
+  }
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.65rem;
+  }
+  .skill {
+    color: var(--text-dim);
+    font-size: 0.74rem;
+  }
+  .skills-note {
+    margin: 1.2rem 0 0;
+    color: var(--text-faint);
+    font-size: 0.77rem;
+  }
+  .skills-note span {
+    margin-right: 0.45rem;
     color: var(--accent);
+  }
+  @media (max-width: 900px) {
+    .groups {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 540px) {
+    .groups {
+      grid-template-columns: 1fr;
+    }
+    .group {
+      min-height: 180px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .group {
+      transition: none;
+    }
   }
 </style>

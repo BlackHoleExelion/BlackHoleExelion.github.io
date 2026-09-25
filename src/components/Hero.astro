@@ -3,79 +3,206 @@ import { profile } from '../data/resume';
 ---
 
 <section id="top" class="hero">
-  <!-- Placeholder: subtle animated data-viz background (particles / network graph) goes here -->
-  <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-content">
-    <p class="kicker">{profile.title} · {profile.location}</p>
-    <h1>{profile.name}</h1>
-    <p class="tagline">{profile.tagline}</p>
-    <div class="actions">
-      <a class="btn primary" href="#projects">View Projects</a>
-      <a class="btn" href={profile.linkedin} target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href={`mailto:${profile.email}`}>Email</a>
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="status-dot"></span> {profile.title} <span class="separator">/</span> {profile.location}</p>
+      <h1>Making complex<br /><em>data useful.</em></h1>
+      <p class="tagline">{profile.tagline}</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore selected work <span aria-hidden="true">↓</span></a>
+        <a class="text-link" href={profile.linkedin} target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href={`mailto:${profile.email}`}>Get in touch <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-footnote"><span>GTA, CANADA</span><span>OPEN TO DATA SCIENCE & ENGINEERING ROLES</span></div>
+    </div>
+    <div class="hero-visual" aria-label="Illustrative visualization of a real-time data pipeline">
+      <div class="visual-top"><span>FIELD NOTE 001</span><span>STREAM / SPATIAL / INSIGHT</span></div>
+      <svg class="hero-diagram" viewBox="0 0 520 430" role="img" aria-labelledby="hero-graphic-title hero-graphic-desc">
+        <title id="hero-graphic-title">From raw events to actionable insight</title>
+        <desc id="hero-graphic-desc">An abstract technical illustration showing data moving through a streaming pipeline into a spatial grid and chart.</desc>
+        <defs>
+          <pattern id="hero-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#d9e8ca" stroke-opacity=".08" stroke-width="1" /></pattern>
+          <linearGradient id="hero-fade" x1="0" x2="1"><stop stop-color="#d2ed78" stop-opacity=".08"/><stop offset="1" stop-color="#d2ed78" stop-opacity=".72"/></linearGradient>
+        </defs>
+        <rect x="12" y="16" width="496" height="396" fill="url(#hero-grid)" stroke="#303830"/>
+        <g fill="none" stroke="#687866" stroke-width="1">
+          <path d="M88 128H194M88 218H194M88 308H194M302 218H394" stroke-dasharray="4 5" />
+          <path d="M194 128L228 174M194 218H228M194 308L228 260M292 218L322 150M292 218L322 286" />
+        </g>
+        <g font-family="monospace" font-size="10" letter-spacing="1.5">
+          <text x="48" y="76" fill="#a4aaa0">SOURCE</text><text x="221" y="76" fill="#a4aaa0">TRANSFORM</text><text x="378" y="76" fill="#a4aaa0">SIGNAL</text>
+          <text x="45" y="358" fill="#727a70">LIVE EVENTS</text><text x="220" y="358" fill="#727a70">SPATIAL INDEX</text><text x="380" y="358" fill="#727a70">DECISION</text>
+        </g>
+        <g>
+          <rect x="42" y="106" width="96" height="44" fill="#171c18" stroke="#465144"/><rect x="42" y="196" width="96" height="44" fill="#171c18" stroke="#465144"/><rect x="42" y="286" width="96" height="44" fill="#171c18" stroke="#465144"/>
+          <circle cx="57" cy="128" r="4" fill="#d2ed78"/><circle cx="57" cy="218" r="4" fill="#8faaa0"/><circle cx="57" cy="308" r="4" fill="#d6a778"/>
+          <g fill="#f0efe8" font-family="monospace" font-size="11"><text x="69" y="132">GPS FEED</text><text x="69" y="222">CASE LOG</text><text x="69" y="312">EVENT BUS</text></g>
+          <rect x="194" y="174" width="98" height="88" fill="#20291e" stroke="#d2ed78"/><g fill="#d2ed78" font-family="monospace" font-size="10"><text x="211" y="210">ENRICH</text><text x="211" y="228">& INDEX</text></g><path d="M210 239H275" stroke="#d2ed78" stroke-opacity=".4"/>
+        </g>
+        <g transform="translate(322 108)">
+          <rect width="144" height="220" fill="#171c18" stroke="#465144"/>
+          <path d="M0 48H144M0 100H144M0 152H144M48 0V220M96 0V220" stroke="#d9e8ca" stroke-opacity=".09"/>
+          <path d="M25 136L49 105L73 116L97 72L121 82" fill="none" stroke="url(#hero-fade)" stroke-width="2"/>
+          <g fill="#d2ed78"><circle cx="25" cy="136" r="3"/><circle cx="49" cy="105" r="3"/><circle cx="73" cy="116" r="3"/><circle cx="97" cy="72" r="3"/><circle cx="121" cy="82" r="3"/></g>
+          <rect x="16" y="174" width="46" height="24" fill="#20291e"/><rect x="72" y="174" width="56" height="24" fill="#20291e"/>
+          <text x="24" y="190" fill="#d2ed78" font-family="monospace" font-size="9">&lt;500ms</text><text x="81" y="190" fill="#8faaa0" font-family="monospace" font-size="9">LIVE</text>
+        </g>
+        <g fill="#d2ed78"><circle cx="194" cy="128" r="3"/><circle cx="194" cy="218" r="3"/><circle cx="194" cy="308" r="3"/><circle cx="322" cy="150" r="3"/><circle cx="322" cy="286" r="3"/></g>
+      </svg>
+      <div class="visual-bottom"><span>FIG. 01 — SYSTEMS IN MOTION</span><span>01 / 04</span></div>
     </div>
   </div>
 </section>
 
 <style>
   .hero {
-    position: relative;
-    max-width: none;
-    padding: 7rem 1.5rem 6rem;
-    text-align: center;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(600px 300px at 20% 20%, rgba(76, 194, 255, 0.12), transparent),
-      radial-gradient(500px 260px at 80% 30%, rgba(124, 92, 255, 0.12), transparent);
-    pointer-events: none;
+    max-width: var(--max-width);
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
   }
   .hero-content {
-    position: relative;
-    max-width: var(--max-width);
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
   }
   .kicker {
     color: var(--accent);
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-size: 0.85rem;
   }
   h1 {
-    font-size: clamp(2.4rem, 6vw, 3.6rem);
-    margin: 0.3rem 0 0.8rem;
+    margin: 1.3rem 0 1.25rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(3.5rem, 6.6vw, 6.4rem);
+    font-weight: 400;
+    letter-spacing: -0.07em;
+    line-height: 0.91;
+  }
+  h1 em {
+    color: var(--accent);
+    font-weight: 400;
   }
   .tagline {
+    max-width: 510px;
+    margin: 0 0 1.7rem;
     color: var(--text-dim);
-    max-width: 640px;
-    margin: 0 auto 1.8rem;
-    font-size: 1.08rem;
+    font-size: 1.02rem;
   }
   .actions {
     display: flex;
-    gap: 0.8rem;
-    justify-content: center;
+    align-items: center;
+    gap: 1.15rem;
     flex-wrap: wrap;
   }
   .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.15rem;
+    min-height: 47px;
+    padding: 0.65rem 0.9rem;
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 0.6rem 1.3rem;
     color: var(--text);
-    background: var(--bg-card);
     font-weight: 600;
+    font-size: 0.82rem;
+    transition: transform 160ms ease, background 160ms ease;
   }
   .btn:hover {
     text-decoration: none;
-    border-color: var(--accent);
+    transform: translateY(-2px);
   }
   .btn.primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    border: none;
-    color: #06101f;
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  .text-link {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+  .text-link span {
+    margin-left: 0.2rem;
+    color: var(--accent);
+  }
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+  }
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(210, 237, 120, 0.1);
+  }
+  .separator {
+    color: var(--text-faint);
+  }
+  .hero-footnote {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 3.5rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-faint);
+    font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.59rem;
+    letter-spacing: 0.08em;
+  }
+  .hero-visual {
+    position: relative;
+    padding: 0.8rem;
+    border: 1px solid var(--border);
+    background: #121712;
+  }
+  .visual-top,
+  .visual-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--text-faint);
+    font-family: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+  .visual-top {
+    padding: 0.25rem 0.2rem 0.7rem;
+  }
+  .visual-bottom {
+    padding: 0.55rem 0.2rem 0.2rem;
+  }
+  .hero-diagram {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  @media (max-width: 900px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+    }
+    .hero-copy {
+      max-width: 680px;
+    }
+    .hero-visual {
+      max-width: 680px;
+    }
+    .hero-footnote {
+      margin-top: 2rem;
+    }
+  }
+  @media (max-width: 520px) {
+    h1 {
+      font-size: clamp(3.3rem, 17vw, 5rem);
+    }
+    .hero-footnote {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .visual-top,
+    .visual-bottom {
+      font-size: 0.5rem;
+    }
   }
 </style>
