@@ -173,7 +173,6 @@ section {
   color: var(--text-dim);
 }
 
-.ph-topline,
 .ph-bottomline {
   position: relative;
   z-index: 1;
@@ -187,24 +186,9 @@ section {
   text-transform: uppercase;
 }
 
-.ph-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: var(--accent);
-}
-
-.ph-status::before {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  content: '';
-}
-
 .ph-art {
   position: absolute;
-  inset: 2.4rem 0.75rem 2.2rem;
+  inset: 1.1rem 0.75rem 2.2rem;
   display: grid;
   place-items: center;
   opacity: 0.9;
@@ -221,11 +205,11 @@ section {
 }
 
 .placeholder.diagram .ph-art {
-  inset: 2.6rem 1rem 2.3rem;
+  inset: 1.2rem 1rem 2.3rem;
 }
 
 .placeholder.mockup .ph-art {
-  inset: 2.4rem 0.75rem 2.1rem;
+  inset: 1.1rem 0.75rem 2.1rem;
 }
 
 @media (max-width: 760px) {
