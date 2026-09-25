@@ -5,7 +5,7 @@ export const profile = {
     'Building real-time data platforms, LLM systems, and ML pipelines — from streaming geospatial analytics to agentic tool orchestration.',
   email: 'summerist.l@hotmail.com',
   linkedin: 'https://www.linkedin.com/in/ximoliang/',
-  location: 'Canada/USA',
+  location: 'Canada & USA',
   resumePdf: 'resume.pdf', // place your PDF in /public
 };
 
