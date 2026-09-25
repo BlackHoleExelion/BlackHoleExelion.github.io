@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { kind, visual, label } = Astro.props;
-const kindLabels: Record<string, string> = { mockup: 'Concept UI', diagram: 'System map', demo: 'Interactive demo' };
+const kindLabels: Record<string, string> = { mockup: 'Interface overview', diagram: 'System architecture', demo: 'Interactive demo' };
 ---
 
 <div class:list={['placeholder', kind]} role="img" aria-label={`${kindLabels[kind]} illustration for ${label}`}>
