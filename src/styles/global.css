@@ -34,7 +34,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background-color: var(--bg);
-  background-image: linear-gradient(rgba(220, 232, 213, 0.018) 1px, transparent 1px),
+  background-image: linear-gradient(rgba(220, 232, 213, 0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(220, 232, 213, 0.05) 1px, transparent 1px);
   background-size: 48px 48px;
   color: var(--text);
