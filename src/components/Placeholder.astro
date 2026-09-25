@@ -23,12 +23,39 @@ const kindLabels: Record<string, string> = { mockup: 'Concept UI', diagram: 'Sys
       </svg>
     )}
     {visual === 'agent' && (
-      <svg viewBox="0 0 480 180" fill="none">
-        <g stroke="#8faaa0" stroke-opacity=".42"><path d="M80 90H178M302 90H400M240 38V72M240 108V142"/></g>
-        <rect x="28" y="62" width="105" height="56" fill="#171c18" stroke="#465144"/><rect x="178" y="60" width="124" height="60" fill="#20291e" stroke="#d2ed78"/><rect x="347" y="62" width="105" height="56" fill="#171c18" stroke="#465144"/>
-        <g fill="#f0efe8" font-family="monospace" font-size="10"><text x="49" y="86">CONTEXT</text><text x="45" y="102" fill="#a4aaa0">100K TOKENS</text><text x="198" y="87" fill="#d2ed78">AGENT LOOP</text><text x="197" y="103" fill="#a4aaa0">PLAN → ACT → CHECK</text><text x="376" y="86">TOOL APIs</text><text x="373" y="102" fill="#a4aaa0">3 SERVERS / 40+</text></g>
-        <g fill="#d2ed78"><circle cx="80" cy="90" r="3"/><circle cx="240" cy="38" r="3"/><circle cx="240" cy="142" r="3"/><circle cx="400" cy="90" r="3"/></g>
-        <g fill="#8faaa0" font-family="monospace" font-size="8"><text x="205" y="29">RISK GATES</text><text x="203" y="158">AUDIT TRAIL</text></g>
+      <svg viewBox="0 0 480 220" fill="none">
+        <rect x="12" y="10" width="456" height="200" fill="#141914" stroke="#465144"/>
+        <path d="M12 37H468" stroke="#465144"/>
+        <circle cx="28" cy="24" r="3" fill="#d6a778"/><circle cx="39" cy="24" r="3" fill="#8faaa0"/><circle cx="50" cy="24" r="3" fill="#d2ed78"/>
+        <text x="67" y="27" fill="#a4aaa0" font-family="monospace" font-size="8" letter-spacing="1">MCP TRADING AGENT / ORCHESTRATION</text>
+        <text x="374" y="27" fill="#d2ed78" font-family="monospace" font-size="8">10 MIN CYCLE</text>
+
+        <rect x="25" y="49" width="112" height="96" fill="#171c18" stroke="#465144"/>
+        <text x="37" y="65" fill="#d2ed78" font-family="monospace" font-size="7" letter-spacing=".6">MARKET CONTEXT</text>
+        <path d="M37 72H125" stroke="#465144"/>
+        <g fill="#a4aaa0" font-family="monospace" font-size="7"><text x="38" y="86">PRICE & VOLUME</text><text x="38" y="101">FUNDAMENTALS</text><text x="38" y="116">SENTIMENT / NEWS</text></g>
+        <path d="M38 130H91" stroke="#8faaa0" stroke-opacity=".45"/><text x="96" y="133" fill="#727a70" font-family="monospace" font-size="6">COMPACT</text>
+
+        <rect x="166" y="55" width="145" height="84" fill="#20291e" stroke="#d2ed78"/>
+        <text x="180" y="74" fill="#a4aaa0" font-family="monospace" font-size="7" letter-spacing=".7">MODEL / DEEPSEEK V3.2</text>
+        <text x="180" y="96" fill="#f0efe8" font-family="monospace" font-size="10">PLAN → CALL → REVIEW</text>
+        <path d="M180 106H297" stroke="#465144"/>
+        <text x="180" y="124" fill="#d2ed78" font-family="monospace" font-size="7">MULTI-ROUND TOOL USE</text>
+
+        <rect x="340" y="49" width="115" height="96" fill="#171c18" stroke="#465144"/>
+        <text x="352" y="65" fill="#d2ed78" font-family="monospace" font-size="7" letter-spacing=".6">3 MCP SERVERS</text>
+        <path d="M352 72H443" stroke="#465144"/>
+        <g fill="#a4aaa0" font-family="monospace" font-size="7"><text x="353" y="86">01 / EXECUTION</text><text x="353" y="101">02 / MARKET DATA</text><text x="353" y="116">03 / WEB & RESEARCH</text></g>
+        <text x="353" y="134" fill="#727a70" font-family="monospace" font-size="6">40+ ROUTED TOOLS</text>
+
+        <path d="M137 97H166M311 97H340" stroke="#8faaa0" stroke-width="1.2"/>
+        <path d="M153 94L159 97L153 100M326 94L332 97L326 100" stroke="#d2ed78"/>
+        <path d="M397 151V161H239V151" stroke="#8faaa0" stroke-opacity=".5" stroke-dasharray="3 4"/>
+        <path d="M239 161H83V151" stroke="#8faaa0" stroke-opacity=".5" stroke-dasharray="3 4"/>
+
+        <g><rect x="25" y="171" width="125" height="23" fill="#171c18" stroke="#465144"/><rect x="177" y="171" width="125" height="23" fill="#171c18" stroke="#465144"/><rect x="329" y="171" width="126" height="23" fill="#171c18" stroke="#465144"/></g>
+        <g fill="#d2ed78" font-family="monospace" font-size="7"><text x="37" y="186">PRE-TRADE VALIDATION</text><text x="190" y="186">RISK / CIRCUIT BREAKERS</text><text x="341" y="186">STRUCTURED JSON AUDIT</text></g>
+        <g fill="#727a70" font-family="monospace" font-size="6"><text x="25" y="204">31+ REUSABLE TOOLS</text><text x="366" y="204">~60% FEWER TOOL ITERATIONS</text></g>
       </svg>
     )}
     {visual === 'search' && (
