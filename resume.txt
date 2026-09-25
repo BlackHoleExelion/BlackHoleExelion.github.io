@@ -2,7 +2,7 @@ Ximo Liang
 (123)456-7890 | myemail@hotmail.com | https://www.linkedin.com/in/mylinkedin/
 
 SKILLS
-Python, SQL, R, REST/WebSocket APIs, MCP, LLM, Agentic Tool Orchestration, RAG, HuggingFace, vLLM, Kafka, Spark, ETL, ClickHouse, NoSQL, Elasticsearch, Redis, Scikit-learn, TensorFlow, AutoGluon, MLflow, Docker, Kubernetes, Linux, Git, GCP, AWS
+Python, SQL, R, REST/WebSocket APIs, MCP, LLM, Agentic Tool Orchestration, RAG, HuggingFace, vLLM, Kafka, Spark, ETL, ClickHouse, NoSQL, ElasticSearch, Redis, Scikit-learn, TensorFlow, AutoGluon, MLflow, Docker, Kubernetes, Linux, Git, GCP, AWS
 
 PROJECTS
 Real‑time GPS Analytics and Dispatch System (Public Security Section, 2026)
@@ -14,7 +14,7 @@ LLM Trading Agent with MCP Tool Orchestration (Personal Project, 2025)
 •	Engineered a custom FastMCP-based Alpaca server with 31+ reusable tools, source-prefixed tool routing, multi-round function calling, and tiktoken-based context management to keep long-running agent workflows under a 100K-token budget.
 •	Developed a compact market-context injection pipeline and API-based reliability layer with pre-trade validation, risk controls, circuit breakers, and structured JSON audit logs, reducing LLM tool-call iterations by approximately 60%.
 Hybrid Search Platform for Police Reports (Public Security Section, 2025)
-•	Engineered a production-grade ETL and semantic indexing pipeline to ingest, normalize, deduplicate, enrich, and embed large-scale police reports using deep‑learning model (Sentence‑Transformers) and scalable preprocessing. Built incremental and batch ETL flows with automated monitoring and fault-tolerant, dockerized deployment that reduced regular ETL processing time by 99.9%, and persistently stores data in a distributed Elasticsearch environment to enable millisecond search at million‑document level.
+•	Engineered a production-grade ETL and semantic indexing pipeline to ingest, normalize, deduplicate, enrich, and embed large-scale police reports using deep‑learning model (Sentence‑Transformers) and scalable preprocessing. Built incremental and batch ETL flows with automated monitoring and fault-tolerant, dockerized deployment that reduced regular ETL processing time by 99.9%, and persistently stores data in a distributed ElasticSearch environment to enable millisecond search at million‑document level.
 •	Developed a low‑latency async API exposing flexible endpoints with efficient caching and pagination to support high speed hybrid (lexical + semantic) queries. Paired with a web-based frontend offering real‑time visualizations and investigator workflows, the solution expanded the searchable corpus size by 113% while preserving millisecond responses.
 Online Expertise Chatbot (Personal Project, 2024)
 •	Engineered an AI-driven chatbot to respond dynamically to inquiries about expertise, projects, and skills, integrating GPT/Gemini via REST APIs and enhancing responses using LangChain-based Retrieval-Augmented Generation.
@@ -40,7 +40,7 @@ Data Science Engineer
 •	Engineered real-time geospatial data pipelines for high-volume police GPS and occurrence data using Python, Kafka, ClickHouse, Uber H3, GeoJSON, UTM-to-WGS84 transformation, and incremental ETL, reducing latency from 2-day batch cycles to <500ms streaming while supporting millisecond queries over millions of records.
 •	Built low-latency async backend services with FastAPI, Redis, REST/WebSocket APIs, and distributed Linux deployments to serve patrol coverage heatmaps, occurrence risk maps, spatial aggregations, and operational dashboards with sub-5-second refresh cycles.
 •	Deployed an open-source LLM inference layer using vLLM, a quantized 3.8B model, and a streaming FastAPI proxy, enabling natural-language hex-area summaries and dispatch briefings with sub-2-second first-token latency.
-•	Developed a production-grade hybrid search and analytics platform using Elasticsearch, Sentence-Transformers, AutoGluon, MLflow, Dockerized ETL, caching, deduplication, and spatial indexing, reducing routine ETL time by 99.9%, expanding searchable corpus capacity by 113%, and reducing patrol blind-spot identification time by 92%.
+•	Developed a production-grade hybrid search and analytics platform using ElasticSearch, Sentence-Transformers, AutoGluon, MLflow, Dockerized ETL, caching, deduplication, and spatial indexing, reducing routine ETL time by 99.9%, expanding searchable corpus capacity by 113%, and reducing patrol blind-spot identification time by 92%.
 University of Pennsylvania, Philadelphia, USA										 May 2019 - April 2022
 Data Scientist
 •	Conducted exploratory data analysis, data modeling, machine learning, and data visualization on over 50TB high-dimensional structured data and unstructured data including imaging, physiological signal data, using Python, R, Matlab, Bash, Docker, Singularity, Spark, Oracle Grid Engine on HPC clusters and cloud platforms.

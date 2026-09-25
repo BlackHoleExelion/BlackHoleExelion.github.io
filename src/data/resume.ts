@@ -16,7 +16,7 @@ export const skillGroups = [
   },
   {
     label: 'Data Engineering',
-    skills: ['Kafka', 'Spark', 'ETL', 'ClickHouse', 'Elasticsearch', 'Redis', 'MSSQL', 'NoSQL', 'Snowflake'],
+    skills: ['Kafka', 'Spark', 'ETL', 'ClickHouse', 'ElasticSearch', 'Redis', 'MSSQL', 'NoSQL', 'Snowflake'],
   },
   {
     label: 'AI & Machine Learning',
@@ -100,10 +100,10 @@ export const projects: Project[] = [
     visual: 'search',
     category: 'Data systems',
     highlights: [
-      `Engineered a production-grade ETL and semantic indexing pipeline to ingest, normalize, deduplicate, enrich, and embed large-scale police reports using deep‑learning model (Sentence‑Transformers) and scalable preprocessing. Built incremental and batch ETL flows with automated monitoring and fault-tolerant, dockerized deployment that reduced regular ETL processing time by 99.9%, and persistently stores data in a distributed Elasticsearch environment to enable millisecond search at million‑document level.`,
+      `Engineered a production-grade ETL and semantic indexing pipeline to ingest, normalize, deduplicate, enrich, and embed large-scale police reports using deep‑learning model (Sentence‑Transformers) and scalable preprocessing. Built incremental and batch ETL flows with automated monitoring and fault-tolerant, dockerized deployment that reduced regular ETL processing time by 99.9%, and persistently stores data in a distributed ElasticSearch environment to enable millisecond search at million‑document level.`,
       `Developed a low‑latency async API exposing flexible endpoints with efficient caching and pagination to support high speed hybrid (lexical + semantic) queries. Paired with a web-based frontend offering real‑time visualizations and investigator workflows, the solution expanded the searchable corpus size by 113% while preserving millisecond responses.`,
     ],
-    stack: ['Elasticsearch', 'Sentence-Transformers', 'FastAPI', 'Docker'],
+    stack: ['ElasticSearch', 'Sentence-Transformers', 'FastAPI', 'Docker'],
     metrics: ['99.9% ETL time reduction', '+113% searchable corpus', 'Millisecond search'],
   },
   {
@@ -190,7 +190,7 @@ export const experience = [
       'Engineered real-time geospatial data pipelines for high-volume police GPS and occurrence data using Python, Kafka, ClickHouse, Uber H3, GeoJSON, UTM-to-WGS84 transformation, and incremental ETL, reducing latency from 2-day batch cycles to <500ms streaming while supporting millisecond queries over millions of records.',
       'Built low-latency async backend services with FastAPI, Redis, REST/WebSocket APIs, and distributed Linux deployments to serve patrol coverage heatmaps, occurrence risk maps, spatial aggregations, and operational dashboards with sub-5-second refresh cycles.',
       'Deployed an open-source LLM inference layer using vLLM, a quantized 3.8B model, and a streaming FastAPI proxy, enabling natural-language hex-area summaries and dispatch briefings with sub-2-second first-token latency.',
-      'Developed a production-grade hybrid search and analytics platform using Elasticsearch, Sentence-Transformers, AutoGluon, MLflow, Dockerized ETL, caching, deduplication, and spatial indexing, reducing routine ETL time by 99.9%, expanding searchable corpus capacity by 113%, and reducing patrol blind-spot identification time by 92%.',
+      'Developed a production-grade hybrid search and analytics platform using ElasticSearch, Sentence-Transformers, AutoGluon, MLflow, Dockerized ETL, caching, deduplication, and spatial indexing, reducing routine ETL time by 99.9%, expanding searchable corpus capacity by 113%, and reducing patrol blind-spot identification time by 92%.',
     ],
   },
   {
