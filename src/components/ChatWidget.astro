@@ -92,7 +92,17 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: messages.slice(-20) }),
       });
-      if (!response.ok || !response.body) throw new Error(`Chat request failed (${response.status})`);
+      if (!response.ok) {
+        let detail = '';
+        try {
+          const data = (await response.json()) as { error?: string };
+          detail = data?.error ?? '';
+        } catch {
+          // Ignore non-JSON error bodies.
+        }
+        throw new Error(detail || `Chat request failed (${response.status})`);
+      }
+      if (!response.body) throw new Error('Chat request failed (no response body)');
 
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
@@ -108,9 +118,16 @@
       if (!text.trim()) throw new Error('The assistant returned an empty response.');
       messages.push({ role: 'assistant', content: text });
     } catch (error) {
-      const message = error instanceof Error && error.message.includes('fetch')
-        ? 'Could not reach the chat service. Check that the Worker is deployed and try again.'
-        : 'Sorry, the assistant could not answer right now. Please try again.';
+      const raw = error instanceof Error ? error.message : '';
+      let message: string;
+      if (raw.includes('fetch') || raw.includes('Failed to fetch') || raw.includes('NetworkError')) {
+        message = 'Could not reach the chat service. Check that the Worker is deployed and try again.';
+      } else if (raw && !raw.startsWith('Chat request failed')) {
+        // Surface the Worker's specific error (e.g. model temporarily unavailable).
+        message = raw;
+      } else {
+        message = 'Sorry, the assistant could not answer right now. Please try again.';
+      }
       if (answer) answer.textContent = message;
       else addMessage('assistant', message);
       messages.pop();
