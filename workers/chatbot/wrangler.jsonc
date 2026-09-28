@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ximo-resume-chatbot",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-28",
+  "vars": {
+    "ALLOWED_ORIGIN": "https://blackholeexelion.github.io",
+    "GEMINI_MODEL": "gemini-3.7-flash"
+  }
+}

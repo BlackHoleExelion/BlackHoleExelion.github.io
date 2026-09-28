@@ -3,7 +3,7 @@ import { experience, education } from '../data/resume';
 ---
 
 <section id="experience">
-  <div class="section-heading">
+  <div class="section-heading" data-reveal>
     <div><span class="section-index">03 / Background</span><h2 class="section-title">Built across<br />disciplines.</h2></div>
     <p class="section-sub">A career connecting production engineering, applied research, and analytical problem-solving.</p>
   </div>
@@ -11,7 +11,7 @@ import { experience, education } from '../data/resume';
   <div class="timeline experience-timeline">
     {
       experience.map((job, index) => (
-        <article class="item">
+        <article class="item" data-reveal style={`--reveal-delay: ${index * 90}ms`}>
           <span class="item-index">0{index + 1}</span>
           <div class="item-head">
             <div>
@@ -28,11 +28,11 @@ import { experience, education } from '../data/resume';
     }
   </div>
 
-  <div class="education-heading"><span class="section-index">Education</span><span class="education-line"></span></div>
+  <div class="education-heading" data-reveal><span class="section-index">Education</span><span class="education-line"></span></div>
   <div class="timeline education-list">
     {
       education.map((e) => (
-        <article class="item education-item">
+        <article class="item education-item" data-reveal>
           <span class="item-index">ED</span>
           <div class="item-content">
             <div class="item-head">

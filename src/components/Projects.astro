@@ -8,12 +8,12 @@ const filters = ['All selected work', 'Data systems', 'Applied ML', 'Research'];
 ---
 
 <section id="projects">
-  <div class="section-heading">
+  <div class="section-heading" data-reveal>
     <div><span class="section-index">01 / Selected work</span><h2 class="section-title">Systems with<br />measurable impact.</h2></div>
     <p class="section-sub">A selection of data platforms, machine-learning work, and research. Internal projects use conceptual visuals and contain no operational data.</p>
   </div>
 
-  <div class="project-toolbar">
+  <div class="project-toolbar" data-reveal style="--reveal-delay: 90ms">
     <div class="filters" role="group" aria-label="Filter projects">
       {filters.map((filter, index) => <button class="filter-button" type="button" data-filter={filter} aria-pressed={index === 0 ? 'true' : 'false'}>{filter}<span>{index === 0 ? String(projects.length).padStart(2, '0') : ''}</span></button>)}
     </div>
@@ -21,8 +21,8 @@ const filters = ['All selected work', 'Data systems', 'Applied ML', 'Research'];
   </div>
 
   <div class="grid project-grid">
-    {featured.map((p) => <ProjectCard project={p} />)}
-    {rest.map((p) => <ProjectCard project={p} />)}
+    {featured.map((p, i) => <ProjectCard project={p} data-reveal style={`--reveal-delay: ${140 + i * 90}ms`} />)}
+    {rest.map((p, i) => <ProjectCard project={p} data-reveal style={`--reveal-delay: ${140 + (featured.length + i) * 90}ms`} />)}
   </div>
   <p class="empty-state" hidden>No projects in this category yet.</p>
 </section>

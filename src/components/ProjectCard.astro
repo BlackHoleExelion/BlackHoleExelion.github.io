@@ -4,12 +4,14 @@ import Placeholder from './Placeholder.astro';
 
 interface Props {
   project: Project;
+  class?: string;
+  [key: string]: unknown;
 }
 
-const { project } = Astro.props;
+const { project, ...rest } = Astro.props;
 ---
 
-<article class="project" data-category={project.category}>
+<article class="project" data-category={project.category} {...rest}>
   <div class="project-visual"><Placeholder kind={project.media} visual={project.visual} label={project.title} /></div>
   <div class="project-content">
     <div class="project-meta"><span>{project.category}</span><span>{project.context} · {project.year}</span></div>
@@ -35,10 +37,11 @@ const { project } = Astro.props;
   .project {
     min-width: 0;
     background: var(--bg-card);
-    transition: background 180ms ease;
+    transition: background 180ms ease, transform 180ms ease;
   }
   .project:hover {
     background: #1b211c;
+    transform: translateY(-3px);
   }
   .project-visual {
     padding: 0.75rem 0.75rem 0;

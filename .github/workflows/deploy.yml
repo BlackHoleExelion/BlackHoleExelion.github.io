@@ -13,6 +13,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_CHATBOT_API_URL: ${{ vars.PUBLIC_CHATBOT_API_URL }}
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v5

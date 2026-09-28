@@ -3,7 +3,7 @@ import { profile } from '../data/resume';
 ---
 
 <section id="contact">
-  <div class="contact-panel">
+  <div class="contact-panel" data-reveal>
     <div class="contact-copy">
       <span class="section-index">05 / Next steps</span>
       <h2 class="section-title">Let’s make<br /><em>good work.</em></h2>
@@ -72,6 +72,10 @@ import { profile } from '../data/resume';
     padding: 1rem 0;
     border-bottom: 1px solid var(--border);
     font-size: 0.88rem;
+    transition: padding-left 200ms ease, color 200ms ease;
+  }
+  .contact-links > a:hover {
+    padding-left: 0.4rem;
   }
   .contact-links > a:first-child {
     border-top: 1px solid var(--border);

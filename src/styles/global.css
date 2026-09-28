@@ -45,53 +45,48 @@ body {
 
 body::before {
   position: fixed;
-  z-index: 0;
-  inset: 0;
+  z-index: -1;
+  inset: -18%;
   background:
-    radial-gradient(ellipse 32rem 27rem at 18% 22%, rgba(143, 170, 160, 0.2), transparent 100%),
-    radial-gradient(ellipse 29rem 25rem at 78% 38%, rgba(210, 237, 120, 0.15), transparent 100%),
-    radial-gradient(ellipse 34rem 28rem at 55% 88%, rgba(214, 167, 120, 0.12), transparent 100%);
+    radial-gradient(ellipse at 18% 22%, rgba(143, 170, 160, 0.3), transparent 52%),
+    radial-gradient(ellipse at 78% 38%, rgba(210, 237, 120, 0.2), transparent 48%),
+    radial-gradient(ellipse at 55% 88%, rgba(214, 167, 120, 0.16), transparent 50%);
   content: '';
   pointer-events: none;
-  animation: ambient-drift 14s ease-in-out infinite alternate;
+  animation: ambient-drift 9s ease-in-out infinite alternate;
   will-change: transform;
 }
 
 body::after {
   position: fixed;
-  z-index: 0;
-  inset: 0;
+  z-index: -1;
+  inset: -18%;
   background:
-    radial-gradient(ellipse 25rem 22rem at 72% 16%, rgba(210, 237, 120, 0.11), transparent 100%),
-    radial-gradient(ellipse 30rem 26rem at 24% 78%, rgba(143, 170, 160, 0.15), transparent 100%);
+    radial-gradient(ellipse at 72% 16%, rgba(210, 237, 120, 0.13), transparent 42%),
+    radial-gradient(ellipse at 24% 78%, rgba(143, 170, 160, 0.2), transparent 46%);
   content: '';
   pointer-events: none;
-  animation: ambient-drift-alt 19s ease-in-out infinite alternate;
+  animation: ambient-drift-alt 13s ease-in-out infinite alternate;
   will-change: transform, opacity;
-}
-
-main {
-  position: relative;
-  z-index: 1;
 }
 
 @keyframes ambient-drift {
   from {
-    transform: translate3d(-3vw, -2vh, 0) scale(1);
+    transform: translate3d(-7%, -4%, 0) scale(1);
   }
   to {
-    transform: translate3d(3vw, 2vh, 0) scale(1.08);
+    transform: translate3d(7%, 4%, 0) scale(1.14);
   }
 }
 
 @keyframes ambient-drift-alt {
   from {
     opacity: 0.5;
-    transform: translate3d(3vw, 2vh, 0) scale(1.06);
+    transform: translate3d(6%, 4%, 0) scale(1.1);
   }
   to {
     opacity: 1;
-    transform: translate3d(-3vw, -2vh, 0) scale(1);
+    transform: translate3d(-6%, -4%, 0) scale(1);
   }
 }
 
@@ -275,6 +270,30 @@ section {
 
 .project[hidden] {
   display: none;
+}
+
+/* ---------- Scroll reveal ---------- */
+
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 640ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 640ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js [data-reveal].revealed {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (max-width: 760px) {

@@ -3,14 +3,14 @@ import { skillGroups } from '../data/resume';
 ---
 
 <section id="skills">
-  <div class="section-heading">
+  <div class="section-heading" data-reveal>
     <div><span class="section-index">02 / Toolkit</span><h2 class="section-title">Tools for the<br />whole data lifecycle.</h2></div>
     <p class="section-sub">From ingestion and distributed compute to modeling and production APIs. A practical toolkit shaped by research and live systems.</p>
   </div>
   <div class="groups" aria-label="Skills grouped by discipline">
     {
       skillGroups.map((g, index) => (
-        <article class="group">
+        <article class="group" data-reveal style={`--reveal-delay: ${index * 80}ms`}>
           <div class="group-top"><span class="group-index">0{index + 1}</span><span class="group-total">{String(g.skills.length).padStart(2, '0')} TOOLS</span></div>
           <h3>{g.label}</h3>
           <div class="group-rule"><span style={`--rule-width: ${Math.min(100, 48 + g.skills.length * 5)}%`}></span></div>
