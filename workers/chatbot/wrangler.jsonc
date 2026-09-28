@@ -5,6 +5,6 @@
   "compatibility_date": "2026-09-28",
   "vars": {
     "ALLOWED_ORIGIN": "https://blackholeexelion.github.io",
-    "GEMINI_MODEL": "gemini-3.5-flash"
+    "GEMINI_MODEL": "gemini-2.5-flash"
   }
 }
