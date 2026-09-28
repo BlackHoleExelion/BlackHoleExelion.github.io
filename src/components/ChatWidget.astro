@@ -3,7 +3,7 @@
     <div class="chat-shell">
       <header class="chat-header">
         <div class="chat-brand">
-          <span class="brand-mark" aria-hidden="true">XL</span>
+          <img class="brand-mark" src="/favicon.svg" alt="" aria-hidden="true" />
           <div>
             <p class="chat-kicker">PORTFOLIO ASSISTANT <span class="status-dot" aria-hidden="true"></span></p>
             <h2 id="chat-title">Ask about my work</h2>
@@ -30,7 +30,6 @@
         <div class="composer">
           <textarea id="chat-input" name="message" rows="2" maxlength="1000" placeholder="Ask anything about Ximo’s work…" required></textarea>
           <button class="chat-send" type="submit" aria-label="Send message" title="Send message">
-            <span class="send-label">Send</span>
             <svg class="send-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 16V4m-5 5 5-5 5 5" /></svg>
           </button>
         </div>
@@ -60,7 +59,6 @@
   const messagesEl = document.querySelector<HTMLElement>('.chat-messages');
   const welcome = document.querySelector<HTMLElement>('.chat-welcome');
   const sendButton = document.querySelector<HTMLButtonElement>('.chat-send');
-  const sendLabel = sendButton?.querySelector<HTMLElement>('.send-label');
   const messages: ChatMessage[] = [];
 
   function setOpen(open: boolean) {
@@ -252,7 +250,6 @@
     input.value = '';
     input.disabled = true;
     sendButton.disabled = true;
-    if (sendLabel) sendLabel.textContent = 'Sending…';
     sendButton.classList.add('is-sending');
     sendButton.setAttribute('aria-label', 'Sending message');
     const answer = addMessage('assistant', '');
@@ -305,7 +302,6 @@
     } finally {
       input.disabled = false;
       sendButton.disabled = false;
-      if (sendLabel) sendLabel.textContent = 'Send';
       sendButton.classList.remove('is-sending');
       sendButton.setAttribute('aria-label', 'Send message');
       input.focus();
@@ -416,16 +412,10 @@
     gap: 0.9rem;
   }
   .brand-mark {
-    display: grid;
+    display: block;
+    flex: 0 0 auto;
     width: 42px;
     height: 42px;
-    place-items: center;
-    border: 1px solid rgba(212, 245, 132, 0.35);
-    border-radius: 0;
-    background: rgba(212, 245, 132, 0.1);
-    color: #d4f584;
-    font-family: Georgia, serif;
-    font-size: 1.2rem;
   }
   .chat-controls {
     gap: 0.5rem;
@@ -637,7 +627,7 @@
   .composer {
     display: flex;
     width: min(100%, 880px);
-    align-items: flex-end;
+    align-items: center;
     gap: 0.65rem;
     margin: 0 auto;
     border: 1px solid rgba(255, 255, 255, 0.13);
@@ -674,20 +664,16 @@
     color: #737e71;
   }
   .chat-send {
-    display: inline-flex;
-    min-width: 92px;
-    height: 46px;
+    display: grid;
+    width: 48px;
+    height: 48px;
     flex: 0 0 auto;
-    align-items: center;
-    justify-content: center;
-    gap: 0.55rem;
+    place-items: center;
     border: 0;
     border-radius: 0;
     background: #d4f584;
     color: #182014;
     font: inherit;
-    font-size: 0.85rem;
-    font-weight: 700;
     cursor: pointer;
     transition: background 150ms ease, transform 150ms ease, opacity 150ms ease;
   }
@@ -706,7 +692,8 @@
     stroke-width: 1.7;
   }
   .chat-send.is-sending .send-icon {
-    display: none;
+    opacity: 0.45;
+    transform: translateY(-2px);
   }
   .chat-form-footer {
     display: flex;
