@@ -6,7 +6,7 @@ export const profile = {
   email: 'summerist.l@hotmail.com',
   linkedin: 'https://www.linkedin.com/in/ximoliang/',
   location: 'Canada & USA',
-  resumePdf: 'resume.pdf', // place your PDF in /public
+  resumePdf: 'resume_ximo_liang.pdf', // place your PDF in /public
 };
 
 export const skillGroups = [
