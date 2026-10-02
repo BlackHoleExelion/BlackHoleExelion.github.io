@@ -3,7 +3,7 @@ dist/
 .astro/
 .env
 .DS_Store
-resume.txt
+/resume.txt
 .dev.vars
 workers/chatbot/.dev.vars
 workers/chatbot/.dev.vars.example
