@@ -28,14 +28,14 @@
       <form class="chat-form">
         <label class="visually-hidden" for="chat-input">Your question</label>
         <div class="composer">
-          <textarea id="chat-input" name="message" rows="2" maxlength="1000" placeholder="Ask anything about Ximo’s work…" required></textarea>
+          <textarea id="chat-input" name="message" rows="2" maxlength="2000" placeholder="Ask anything about Ximo’s work…" required></textarea>
           <button class="chat-send" type="submit" aria-label="Send message" title="Send message">
             <svg class="send-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 16V4m-5 5 5-5 5 5" /></svg>
           </button>
         </div>
         <div class="chat-form-footer">
           <span class="chat-hint">Answers are grounded in the resume <span aria-hidden="true">·</span> Enter to send, Shift + Enter for a new line</span>
-
+          <span class="chat-counter" aria-live="polite" hidden>0 / 2000</span>
         </div>
       </form>
     </div>
@@ -59,7 +59,17 @@
   const messagesEl = document.querySelector<HTMLElement>('.chat-messages');
   const welcome = document.querySelector<HTMLElement>('.chat-welcome');
   const sendButton = document.querySelector<HTMLButtonElement>('.chat-send');
+  const counter = document.querySelector<HTMLElement>('.chat-counter');
+  const maxChars = Number(input?.getAttribute('maxlength')) || 2000;
   const messages: ChatMessage[] = [];
+
+  function updateCounter() {
+    if (!counter || !input) return;
+    const length = input.value.length;
+    counter.textContent = `${length} / ${maxChars}`;
+    counter.hidden = length < maxChars * 0.8;
+    counter.classList.toggle('is-at-limit', length >= maxChars);
+  }
 
   function setOpen(open: boolean) {
     if (!panel || !launcher) return;
@@ -225,6 +235,8 @@
     if (event.key === 'Escape' && panel && !panel.hidden) setOpen(false);
   });
 
+  input?.addEventListener('input', updateCounter);
+
   input?.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' && !event.shiftKey) {
       event.preventDefault();
@@ -252,6 +264,7 @@
     sendButton.disabled = true;
     sendButton.classList.add('is-sending');
     sendButton.setAttribute('aria-label', 'Sending message');
+    updateCounter();
     const answer = addMessage('assistant', '');
 
     try {
@@ -708,6 +721,14 @@
   .chat-hint {
     color: #778174;
     font-size: 0.68rem;
+  }
+  .chat-counter {
+    color: #778174;
+    font-size: 0.68rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .chat-counter.is-at-limit {
+    color: #d8b25a;
   }
   .session-note {
     flex: 0 0 auto;
