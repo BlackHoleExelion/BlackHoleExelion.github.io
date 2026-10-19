@@ -31,6 +31,7 @@
           <textarea id="chat-input" name="message" rows="2" maxlength="2000" placeholder="Ask anything about Ximo’s work…" required></textarea>
           <button class="chat-send" type="submit" aria-label="Send message" title="Send message">
             <svg class="send-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 16V4m-5 5 5-5 5 5" /></svg>
+            <span class="send-spinner" aria-hidden="true"></span>
           </button>
         </div>
         <div class="chat-form-footer">
@@ -214,7 +215,12 @@
     const element = document.createElement('div');
     element.className = `chat-message ${role}`;
     if (role === 'assistant' && text) renderMarkdown(element, text);
-    else element.textContent = text;
+    else if (role === 'assistant') {
+      const label = document.createElement('span');
+      label.className = 'visually-hidden';
+      label.textContent = 'Thinking…';
+      element.append(label, Object.assign(document.createElement('span'), { className: 'chat-typing' }));
+    } else element.textContent = text;
     messagesEl.append(element);
     messagesEl.scrollTop = messagesEl.scrollHeight;
     return element;
@@ -705,8 +711,29 @@
     stroke-width: 1.7;
   }
   .chat-send.is-sending .send-icon {
-    opacity: 0.45;
-    transform: translateY(-2px);
+    display: none;
+  }
+  .send-spinner {
+    display: none;
+    width: 15px;
+    height: 15px;
+    border: 1.7px solid currentColor;
+    animation: chat-spin 0.7s linear infinite;
+  }
+  .chat-send.is-sending .send-spinner {
+    display: block;
+  }
+  .chat-typing {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1.7px solid currentColor;
+    animation: chat-spin 0.7s linear infinite;
+  }
+  @keyframes chat-spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
   .chat-form-footer {
     display: flex;
@@ -857,6 +884,10 @@
     .suggestion {
       animation: none;
       transition: none;
+    }
+    .send-spinner,
+    .chat-typing {
+      animation: none;
     }
   }
 </style>
