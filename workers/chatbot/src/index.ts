@@ -17,9 +17,14 @@ interface IncomingMessage {
   content: string;
 }
 
-const MAX_BODY_BYTES = 16_000;
+// Large enough to hold a full 20-message history at the per-message ceilings.
+const MAX_BODY_BYTES = 128_000;
 const MAX_MESSAGES = 20;
-const MAX_MESSAGE_CHARS = 2_000;
+const MAX_USER_MESSAGE_CHARS = 2_000;
+// Assistant replies are produced by this Worker and already bounded by
+// MAX_OUTPUT_TOKENS, so they get a larger allowance than user input. Applying
+// the user limit to them rejected the next turn whenever a reply ran long.
+const MAX_ASSISTANT_MESSAGE_CHARS = 8_000;
 const MAX_OUTPUT_TOKENS = 500;
 const RATE_WINDOW_MS = 60_000;
 const RATE_LIMIT = 20;
@@ -82,12 +87,11 @@ function corsHeaders(origin: string) {
 function isIncomingMessage(value: unknown): value is IncomingMessage {
   if (!value || typeof value !== 'object') return false;
   const message = value as Record<string, unknown>;
-  return (
-    (message.role === 'user' || message.role === 'assistant') &&
-    typeof message.content === 'string' &&
-    message.content.trim().length > 0 &&
-    message.content.length <= MAX_MESSAGE_CHARS
-  );
+  if (message.role !== 'user' && message.role !== 'assistant') return false;
+  if (typeof message.content !== 'string' || message.content.trim().length === 0) return false;
+
+  const limit = message.role === 'user' ? MAX_USER_MESSAGE_CHARS : MAX_ASSISTANT_MESSAGE_CHARS;
+  return message.content.length <= limit;
 }
 
 interface Provider {
@@ -234,7 +238,11 @@ export default {
       return json({ error: `Send between 1 and ${MAX_MESSAGES} messages.` }, 400, headers);
     }
     if (!payload.messages.every(isIncomingMessage)) {
-      return json({ error: 'Invalid message. Keep each message under 2,000 characters.' }, 400, headers);
+      return json(
+        { error: `Invalid message. Keep each message under ${MAX_USER_MESSAGE_CHARS.toLocaleString('en-US')} characters.` },
+        400,
+        headers,
+      );
     }
 
     const incoming = payload.messages as IncomingMessage[];
@@ -243,6 +251,11 @@ export default {
     }
     const providers = getProviders(env);
     if (!env.SYSTEM_PROMPT || providers.length === 0) {
+      const missing = [
+        !env.SYSTEM_PROMPT && 'SYSTEM_PROMPT',
+        providers.length === 0 && 'GEMINI_API_KEY/GEMINI_MODEL or OPENROUTER_API_KEY/OPENROUTER_MODEL',
+      ].filter(Boolean);
+      console.error(`Chat service is not configured. Missing: ${missing.join(', ')}`);
       return json({ error: 'Chat service is not configured.' }, 503, headers);
     }
 
