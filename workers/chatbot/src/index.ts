@@ -30,7 +30,7 @@ const RATE_WINDOW_MS = 60_000;
 const RATE_LIMIT = 20;
 // How long a provider gets to produce its first token before the next provider
 // in the chain is tried. Once streaming has started we stay with that provider.
-const FIRST_CHUNK_TIMEOUT_MS = 5_000;
+const FIRST_CHUNK_TIMEOUT_MS = 4000;
 const requestsByIp = new Map<string, { windowStart: number; count: number }>();
 
 function getResumeContext() {
