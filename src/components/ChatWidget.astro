@@ -218,8 +218,17 @@
     else if (role === 'assistant') {
       const label = document.createElement('span');
       label.className = 'visually-hidden';
-      label.textContent = 'Thinking…';
-      element.append(label, Object.assign(document.createElement('span'), { className: 'chat-typing' }));
+      label.textContent = 'Thinking';
+      const typing = document.createElement('span');
+      typing.className = 'chat-typing';
+      typing.append(Object.assign(document.createElement('span'), { className: 'chat-typing-spinner' }));
+      const dots = document.createElement('span');
+      dots.className = 'chat-dots';
+      for (let i = 0; i < 3; i++) {
+        dots.append(Object.assign(document.createElement('span'), { className: 'chat-dot' }));
+      }
+      typing.append(dots);
+      element.append(label, typing);
     } else element.textContent = text;
     messagesEl.append(element);
     messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -724,15 +733,46 @@
     display: block;
   }
   .chat-typing {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  .chat-typing-spinner {
+    display: block;
     width: 12px;
     height: 12px;
     border: 1.7px solid currentColor;
     animation: chat-spin 0.7s linear infinite;
   }
+  .chat-dots {
+    display: inline-flex;
+    gap: 4px;
+  }
+  .chat-dot {
+    width: 5px;
+    height: 5px;
+    background: currentColor;
+    animation: chat-dot-pulse 1.2s ease-in-out infinite;
+  }
+  .chat-dot:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  .chat-dot:nth-child(3) {
+    animation-delay: 0.3s;
+  }
   @keyframes chat-spin {
     to {
       transform: rotate(360deg);
+    }
+  }
+  @keyframes chat-dot-pulse {
+    0%, 80%, 100% {
+      opacity: 0.2;
+      transform: translateY(0);
+    }
+    40% {
+      opacity: 1;
+      transform: translateY(-2px);
     }
   }
   .chat-form-footer {
@@ -886,7 +926,8 @@
       transition: none;
     }
     .send-spinner,
-    .chat-typing {
+    .chat-typing-spinner,
+    .chat-dot {
       animation: none;
     }
   }
