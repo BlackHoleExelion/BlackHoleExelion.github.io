@@ -732,32 +732,32 @@
   .chat-send.is-sending .send-spinner {
     display: block;
   }
-  .chat-typing {
+  :global(.chat-typing) {
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
   }
-  .chat-typing-spinner {
+  :global(.chat-typing-spinner) {
     display: block;
     width: 12px;
     height: 12px;
     border: 1.7px solid currentColor;
     animation: chat-spin 0.7s linear infinite;
   }
-  .chat-dots {
+  :global(.chat-dots) {
     display: inline-flex;
     gap: 4px;
   }
-  .chat-dot {
+  :global(.chat-dot) {
     width: 5px;
     height: 5px;
     background: currentColor;
     animation: chat-dot-pulse 1.2s ease-in-out infinite;
   }
-  .chat-dot:nth-child(2) {
+  :global(.chat-dot:nth-child(2)) {
     animation-delay: 0.15s;
   }
-  .chat-dot:nth-child(3) {
+  :global(.chat-dot:nth-child(3)) {
     animation-delay: 0.3s;
   }
   @keyframes chat-spin {
@@ -926,8 +926,8 @@
       transition: none;
     }
     .send-spinner,
-    .chat-typing-spinner,
-    .chat-dot {
+    :global(.chat-typing-spinner),
+    :global(.chat-dot) {
       animation: none;
     }
   }
