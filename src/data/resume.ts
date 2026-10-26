@@ -24,7 +24,6 @@ export const skillGroups = [
       'LLM',
       'RAG',
       'MCP',
-      'Agentic Tool Orchestration',
       'HuggingFace',
       'vLLM',
       'Scikit-learn',
