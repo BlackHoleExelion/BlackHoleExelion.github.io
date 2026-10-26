@@ -16,7 +16,7 @@ export const skillGroups = [
   },
   {
     label: 'Data Engineering',
-    skills: ['Kafka', 'Spark', 'ETL', 'ClickHouse', 'ElasticSearch', 'Redis', 'MSSQL', 'NoSQL', 'Snowflake'],
+    skills: ['Kafka', 'Spark', 'ETL', 'ClickHouse', 'ElasticSearch', 'Redis', 'MSSQL', 'NoSQL', 'Snowflake', 'DBT', 'Airflow'],
   },
   {
     label: 'AI & Machine Learning',
@@ -36,7 +36,7 @@ export const skillGroups = [
   },
   {
     label: 'APIs & Backend',
-    skills: ['REST', 'WebSocket', 'FastAPI', 'Flask', 'Docker', 'Kubernetes', 'Linux', 'Git'],
+    skills: ['REST', 'WebSocket', 'FastAPI', 'Flask', 'Docker', 'Kubernetes', 'Linux', 'Git', 'CI/CD'],
   },
   {
     label: 'Cloud',
