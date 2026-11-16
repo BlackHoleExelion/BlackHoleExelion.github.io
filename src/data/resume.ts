@@ -1,6 +1,6 @@
 export const profile = {
   name: 'Ximo Liang',
-  title: 'Data Science Engineer',
+  title: 'Machine Learning Engineer',
   tagline:
     'Building real-time data platforms, LLM systems, and ML pipelines — from streaming geospatial analytics to agentic tool orchestration.',
   email: 'summerist.l@hotmail.com',
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     visual: 'map',
     category: 'Data systems',
     highlights: [
-      `Engineered a production streaming pipeline ingesting real‑time GPS tracking data from police vehicle logs via H3 hexagonal indexing, Kafka, and ClickHouse, alongside incremental ETL for occurrence data with UTM‑to‑WGS84 transformation and automated H3 enrichment—reducing end‑to‑end data latency from 2‑day batch cycles to <500ms streaming while persisting millions of GPS positions and occurrence records for millisecond queries.`,
+      `Engineered a production streaming pipeline ingesting real‑time GPS tracking data from police vehicle logs via H3 hexagonal indexing, Kafka, and ClickHouse, alongside incremental ETL for occurrence data with UTM‑to‑WGS84 transformation and automated H3 enrichment—reducing end‑to‑end data latency from 2‑day batch cycles to less than 500ms streaming while persisting millions of GPS positions and occurrence records for millisecond queries.`,
       `Deployed an open‑source LLM via vLLM serving a quantized 3.8B model behind a streaming FastAPI proxy, enabling natural‑language hex‑area summaries and dispatch briefings on the dashboard with sub‑2‑second first‑token latency and token‑by‑token streaming to the frontend.`,
       `Built a low‑latency async FastAPI dashboard with Redis caching exposing patrol coverage heatmaps, occurrence risk maps, and AutoGluon and MLflow based time‑series predictions via REST/WebSocket endpoints, paired with a deck.gl/Mapbox GL 3D hex visualization frontend—reducing patrol blind‑spot identification time by 92% with sub‑5‑second refresh cycles across the Halton Region operational area.`,
     ],
@@ -181,12 +181,12 @@ export const projects: Project[] = [
 
 export const experience = [
   {
-    role: 'Data Science Engineer',
+    role: 'Machine Learning Engineer',
     org: 'Halton Regional Police Service',
     location: 'Greater Toronto Area, Canada',
     period: 'May 2025 – Present',
     bullets: [
-      'Engineered real-time geospatial data pipelines for high-volume police GPS and occurrence data using Python, Kafka, ClickHouse, Uber H3, GeoJSON, UTM-to-WGS84 transformation, and incremental ETL, reducing latency from 2-day batch cycles to <500ms streaming while supporting millisecond queries over millions of records.',
+      'Engineered real-time geospatial data pipelines for high-volume police GPS and occurrence data using Python, Kafka, ClickHouse, Uber H3, GeoJSON, UTM-to-WGS84 transformation, and incremental ETL, reducing latency from 2-day batch cycles to less than 500ms streaming while supporting millisecond queries over millions of records.',
       'Built low-latency async backend services with FastAPI, Redis, REST/WebSocket APIs, and distributed Linux deployments to serve patrol coverage heatmaps, occurrence risk maps, spatial aggregations, and operational dashboards with sub-5-second refresh cycles.',
       'Deployed an open-source LLM inference layer using vLLM, a quantized 3.8B model, and a streaming FastAPI proxy, enabling natural-language hex-area summaries and dispatch briefings with sub-2-second first-token latency.',
       'Developed a production-grade hybrid search and analytics platform using ElasticSearch, Sentence-Transformers, AutoGluon, MLflow, Dockerized ETL, caching, deduplication, and spatial indexing, reducing routine ETL time by 99.9%, expanding searchable corpus capacity by 113%, and reducing patrol blind-spot identification time by 92%.',

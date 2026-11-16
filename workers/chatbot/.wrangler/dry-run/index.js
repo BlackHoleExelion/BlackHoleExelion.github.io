@@ -56720,7 +56720,7 @@ var defaultDownload2 = createDownload();
 // ../../src/data/resume.ts
 var profile = {
   name: "Ximo Liang",
-  title: "Data Science Engineer",
+  title: "Machine Learning Engineer",
   tagline: "Building real-time data platforms, LLM systems, and ML pipelines \u2014 from streaming geospatial analytics to agentic tool orchestration.",
   email: "summerist.l@hotmail.com",
   linkedin: "https://www.linkedin.com/in/ximoliang/",
@@ -56772,7 +56772,7 @@ var projects = [
     visual: "map",
     category: "Data systems",
     highlights: [
-      `Engineered a production streaming pipeline ingesting real\u2011time GPS tracking data from police vehicle logs via H3 hexagonal indexing, Kafka, and ClickHouse, alongside incremental ETL for occurrence data with UTM\u2011to\u2011WGS84 transformation and automated H3 enrichment\u2014reducing end\u2011to\u2011end data latency from 2\u2011day batch cycles to <500ms streaming while persisting millions of GPS positions and occurrence records for millisecond queries.`,
+      `Engineered a production streaming pipeline ingesting real\u2011time GPS tracking data from police vehicle logs via H3 hexagonal indexing, Kafka, and ClickHouse, alongside incremental ETL for occurrence data with UTM\u2011to\u2011WGS84 transformation and automated H3 enrichment\u2014reducing end\u2011to\u2011end data latency from 2\u2011day batch cycles to less than 500ms streaming while persisting millions of GPS positions and occurrence records for millisecond queries.`,
       `Deployed an open\u2011source LLM via vLLM serving a quantized 3.8B model behind a streaming FastAPI proxy, enabling natural\u2011language hex\u2011area summaries and dispatch briefings on the dashboard with sub\u20112\u2011second first\u2011token latency and token\u2011by\u2011token streaming to the frontend.`,
       `Built a low\u2011latency async FastAPI dashboard with Redis caching exposing patrol coverage heatmaps, occurrence risk maps, and AutoGluon and MLflow based time\u2011series predictions via REST/WebSocket endpoints, paired with a deck.gl/Mapbox GL 3D hex visualization frontend\u2014reducing patrol blind\u2011spot identification time by 92% with sub\u20115\u2011second refresh cycles across the Halton Region operational area.`
     ],
@@ -56883,12 +56883,12 @@ var projects = [
 ];
 var experience = [
   {
-    role: "Data Science Engineer",
+    role: "Machine Learning Engineer",
     org: "Halton Regional Police Service",
     location: "Greater Toronto Area, Canada",
     period: "May 2025 \u2013 Present",
     bullets: [
-      "Engineered real-time geospatial data pipelines for high-volume police GPS and occurrence data using Python, Kafka, ClickHouse, Uber H3, GeoJSON, UTM-to-WGS84 transformation, and incremental ETL, reducing latency from 2-day batch cycles to <500ms streaming while supporting millisecond queries over millions of records.",
+      "Engineered real-time geospatial data pipelines for high-volume police GPS and occurrence data using Python, Kafka, ClickHouse, Uber H3, GeoJSON, UTM-to-WGS84 transformation, and incremental ETL, reducing latency from 2-day batch cycles to less than 500ms streaming while supporting millisecond queries over millions of records.",
       "Built low-latency async backend services with FastAPI, Redis, REST/WebSocket APIs, and distributed Linux deployments to serve patrol coverage heatmaps, occurrence risk maps, spatial aggregations, and operational dashboards with sub-5-second refresh cycles.",
       "Deployed an open-source LLM inference layer using vLLM, a quantized 3.8B model, and a streaming FastAPI proxy, enabling natural-language hex-area summaries and dispatch briefings with sub-2-second first-token latency.",
       "Developed a production-grade hybrid search and analytics platform using ElasticSearch, Sentence-Transformers, AutoGluon, MLflow, Dockerized ETL, caching, deduplication, and spatial indexing, reducing routine ETL time by 99.9%, expanding searchable corpus capacity by 113%, and reducing patrol blind-spot identification time by 92%."
